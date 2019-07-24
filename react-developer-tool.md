@@ -1,5 +1,7 @@
 
-- [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
+# React Developer Tools Extension
+
+- [React Developer Tools Extension สำหรับ Google Chrome](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 
 ## การตั้งค่าให้ React Developer Tools ทำงานกับไฟล์ HTML แบบ Local ได้
 
