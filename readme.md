@@ -5,7 +5,12 @@
 
 สนใจติดต่อ จัดอบรม [โทร 083-071-3373](tel:083-071-3373) หรือส่ง Email มาที่ [training@nextflow.in.th](mailto:training@nextflow.in.th)
 
-A. [React Developer tools](/react-developer-tool.md)
+## Download & Setup file
+
+- [Slide](https://www.dropbox.com/s/f5pjh83hdu97wai/ReactJS.pdf?dl=0);
+- [React Developer tools](/react-developer-tool.md)
+
+## Content
 
 1. [Using React](/using-react.md)
 2. [JSX](/jsx.md)
