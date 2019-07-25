@@ -7,7 +7,7 @@
 
 ## Download & Setup file
 
-- [Slide](https://www.dropbox.com/s/f5pjh83hdu97wai/ReactJS.pdf?dl=0);
+- [Slide](https://www.dropbox.com/s/f5pjh83hdu97wai/ReactJS.pdf?dl=0)
 - [React Developer tools](/react-developer-tool.md)
 
 ## Content
