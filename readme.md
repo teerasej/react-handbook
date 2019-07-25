@@ -22,4 +22,8 @@
 
 # Debugging React with VSCode
 
-- Debugging React with VSCode
+- [Debugging React with VSCode](/debugging.md)
+
+# React in Action 
+
+- [Location Selector](/practice/location-selector/readme.md)
