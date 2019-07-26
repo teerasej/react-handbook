@@ -16,6 +16,8 @@ npx create-react-app locator-web
 ```bash
 cd locator-web
 npm start
+// หรือ
+yarn start
 ```
 
 ### **หากมีปัญหา error babel 
@@ -53,4 +55,4 @@ import 'bootstrap/dist/css/bootstrap.css';
 
 ```
 
-เสร็จแล้วรัน web server ด้วย `npm start` อีกครั้ง
+เสร็จแล้วรัน web server ด้วย `npm start` หรือ `yarn start` อีกครั้ง
