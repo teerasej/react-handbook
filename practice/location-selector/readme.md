@@ -6,4 +6,4 @@
 3. [สร้าง Location DropDown List](create-location-dropdownlist.md)
 4. [สร้างตัวเลือกจังหวัด, เขต, และแขวง](create-3-part-selector.md)
 5. [วิธีดึงค่าจากคัวเลือกจังหวัด, เขต, และแขวงมาใช้งาน](access-data-from-component.md)
-6. ทดสอบใช้งานโดยการเลือกตัวเลือกต่างๆ และกดปุ่มเพื่อแสดงข้อมูลที่ได้จาก Component 
+6. [ทดสอบใช้งานโดยการเลือกตัวเลือกต่างๆ และกดปุ่มเพื่อแสดงข้อมูลที่ได้จาก Component](access-data-from-component.md) 
