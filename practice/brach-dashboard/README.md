@@ -7,3 +7,6 @@
 4. [ใช้งานข้อมูลกับแผนที่](4-using-data.md)
 5. [สร้าง Stat Chart Component](5-create-chart-component.md)
 6. [ติดตั้ง Redux เข้ากับโปรเจค](6-setup-redux.md)
+7. [สร้างกลไก Action: กดเลือกหมุดและแสดง Chart](7-select-marker-then-show-chart.md)
+8. [สร้างกลไก Action: ดึงข้อมูล JSON](8-web-api.md)
+9. [ใช้ Axios จัดการข้อมูล JSON](9-axios.md)
