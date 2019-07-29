@@ -27,4 +27,4 @@
 # React in Action 
 
 - [Location Selector](/practice/location-selector/readme.md)
-- [Branch Dashboard](https://teerasej.github.io/react-handbook/practice/branch-dashboard/)
+- [Branch Web App](https://teerasej.github.io/react-handbook/practice/branch-dashboard/)
