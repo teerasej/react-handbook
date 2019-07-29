@@ -305,6 +305,7 @@ import Chart from 'react-google-charts';
 import { connect } from 'react-redux'
 
  class StatChart extends Component {
+
     render() {
         return (
             <div>
@@ -317,14 +318,7 @@ import { connect } from 'react-redux'
                         chartType="Line"
                         loader={<div>Loading Chart</div>}
                         data={this.props.chartData}
-                        options={{
-                            hAxis: {
-                                title: 'Month',
-                            },
-                            vAxis: {
-                                title: 'Amount',
-                            },
-                        }}
+                        ...options
                         rootProps={{ 'data-testid': '1' }}
                     />
                 </Card>
