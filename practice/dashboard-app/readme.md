@@ -1,6 +1,9 @@
 
 # Practice: Branch Dashboard 
 
+![2019-07-30_02-16-58](https://user-images.githubusercontent.com/85179/62075745-1e8ab980-b270-11e9-8b26-ce54d4ceeb89.png)
+
+
 1. [สร้างโปรเจค และติดตั้ง module](1-create-project-and-add-module.md) 
 2. [ใช้งาน Ant Design สร้างหน้า App สร้าง Header Menu](2-use-ant-design-create-app-and-header.md)
 3. [สร้าง Map Branch Component](3-create-map-branch.md)
