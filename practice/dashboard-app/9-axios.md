@@ -427,7 +427,7 @@ export default (state = initialState, { type, payload }) => {
 
             console.log(`branchId: ${payload}`)
 
-            let selectingBranch = BranchModel.branches.find(branch => {
+            let selectingBranch = this.branches.find(branch => {
                 return branch.id === payload;
             })
 

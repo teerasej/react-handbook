@@ -28,3 +28,7 @@
 
 - [Location Selector](/practice/location-selector/readme.md)
 - [Branch Web App](practice/dashboard-app/readme.md)
+
+# Publish React
+
+- [การ Publish โปรเจคไปใช้งาน](publish.md) 
