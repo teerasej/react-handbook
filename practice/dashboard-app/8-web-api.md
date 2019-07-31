@@ -1,6 +1,10 @@
 
 # สร้างกลไก Action: ดึงข้อมูล JSON
 
+## 0. ติดตั้ง Chrome Extension
+
+- [Chrome Extension เพื่อยกเลิก CORS ในฝั่ง Browser](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)
+
 ## 1. ติดตั้ง redux-thunk และ redux-logger
 
 - `redux-thunk` จะเป็นส่วนที่ทำงานแบบ Asynchronous ได้
