@@ -10,26 +10,26 @@ Redux ประกอบไปด้วย 3 ส่วนที่ต้อง�
 
 ![Paper React   React Native 27](https://user-images.githubusercontent.com/85179/63178797-f921ec00-c074-11e9-9781-48541785d151.png)
 
-## 1. สร้าง action type และ action object สำหรับตอนที่มีการกดเลือกหมุดบนแผนที่
+
+## 1. สร้าง action type และ action object สำหรับตอนที่มีการกดปุ่ม Save
 
 Action ส่วนใหญ่จะถูกส่งจาก Component มายัง reducer
 
 สร้างไฟล์ `src/redux/actions.js`
 
 ```js
-
 const ActionTypes = {
-    SHOW_BRANCH_DATA: "SHOW_BRANCH_DATA"
+    SAVE_NEW_NOTE: "SAVE_NEW_NOTE"
 }
 
 
-const showBranchData = (payload) => ({
-    type: ActionTypes.SHOW_BRANCH_DATA,
-    payload: payload
+const saveNewNote = (message) => ({
+    type: ActionTypes.SAVE_NEW_NOTE,
+    payload: message
 })
 
 export default {
-    showBranchData,
+    saveNewNote,
     ActionTypes
 }
 ```
@@ -43,34 +43,39 @@ _เปรียบได้คล้ายๆ กับ Event ใน MVC แต
 1. **Action Type** เป็นประเภทของ Action คล้ายๆ ค่า Enum เอาไว้อ้างอิงในส่วนอื่นๆ ของ Redux
 2. **Action Object** ทำหน้าที่คล้ายๆ พัศดุที่เก็บข้อมูล (ข้อมูลส่วนนี้ เรียกทั่วไปว่า payload) ตัว Action Object มักจะถูกส่งจาก Component เพื่อเดินทางไปยัง Reducer
 
-จากไฟล์ตรงนี้ เรากำหนดประเภท Action ในแอพเราขึ้นมา 1 อัน นั่นคือ**ตอนที่เรากดเลือกหมุดในแผนที่ จะมีการแสดงข้อมูลขึ้นมาใน Chart** นั่นเอง
+จากไฟล์ตรงนี้ เรากำหนดประเภท Action ในแอพเราขึ้นมา 1 อัน นั่นคือ**ตอนที่เรากดปุ่ม Save เพื่อต้องการบันทึกข้อความลงใน List** นั่นเอง
+
+
+
 
 ## 2. สร้าง Reducer สำหรับหน้า Dashboard
 
-สร้างไฟล์ `src/redux/dashboard.reducer.js`
+สร้างไฟล์ `src/redux/homepage.reducer.js`
 
-ใช่้ snippet `rxreducer` ได้
+_ใช่้ snippet `rxreducer` ได้_
 
 แล้ว import `./actions` เข้ามา เพื่อกำหนด Action Type เป็น 1 เคสของ Reducer
 
 ```js
-import Actions from "./actions";
-
 const initialState = {
-
+    notes : [
+        {
+            title: 'wowwwww.'
+        }
+    ]
 }
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
 
-    case Actions.ActionTypes.SHOW_BRANCH_DATA: {
+    case '':
         return { ...state, ...payload }
-    }
 
     default:
         return state
     }
 }
+
 ```
 
 ### Reducer
@@ -80,32 +85,6 @@ _เปรียบได้คล้ายๆ กับ Controller ใน MVC �
 _มองว่า State ตอนนี้ ถูกใช้แทน Model ของ MVC ก็ได้_
 
 Reducer เป็นส่วนที่จะจัดการรับ Action ที่ส่งมาจากส่วนต่างๆ ของ Redux, ทำตาม business logic และอัพเดต State กลับไปที่ Component ที่ใช้งาน
-
-## 3. โหลดข้อมูลจาก model กำหนดให้เป็นข้อมูลสาขาเริ่มต้น
-
-import **BranchModel** มากำหนดเป็นค่าเริ่มต้นของ `initialState` 
-
-```js
-import Actions from "./actions";
-import BranchModel from "../models/branchModel";
-
-const initialState = {
-    branches: BranchModel.branches
-}
-
-export default (state = initialState, { type, payload }) => {
-    switch (type) {
-
-    case Actions.ActionTypes.SHOW_BRANCH_DATA: {
-        return { ...state, ...payload }
-    }
-        
-    default:
-        return state
-    }
-}
-
-```
 
 reducer ต้องการ ข้อมูลเริ่มต้น สำหรับใช้ส่งไปให้ Component ต่างๆ เสมอ เรามักเรียกส่วนนี้ว่า **initialState**
 
@@ -119,13 +98,15 @@ reducer ต้องการ ข้อมูลเริ่มต้น สำ�
 
 ```js
 
-import { createStore } from 'redux';   
-import dashboardReducer from "./dashboard.reducer";
+import { createStore } from 'redux'; 
+import homepageReducer from './homepage.reducer';
 
 export default function configureStore() {
-    const store = createStore(dashboardReducer);
+    const store = createStore(homepageReducer);
     return store;
 } 
+
+```
 
 ### Store
 
@@ -133,28 +114,8 @@ export default function configureStore() {
 
 ในที่นี้สร้างเป็นไฟล์แยก เพื่อการปรับแต่งการทำงานได้ง่าย
 
-```
 
-## 5. จัดระเบียบ import เพราะเดี๋ยวต้อง import ของ redux เข้ามาอีก
-
-เปิดไฟล์ `src/App.js`
-
-```js
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import HeaderBar from './components/HeaderBar';
-import MapBranch from './components/MapBranch';
-import StatChart from './components/StatChart';
-
-import { Layout, Menu, Row, Col } from 'antd';
-const { Header, Content, Footer } = Layout;
-
-// ...
-```
-
-## 6. นำ store ที่สร้างไว้ ในกำหนดให้กับ Provider component ที่จะส่งผ่าน store ให้กับทุก component ที่อยู่ด้านใน
+## 5. นำ store ที่สร้างไว้ ในกำหนดให้กับ Provider component ที่จะส่งผ่าน store ให้กับทุก component ที่อยู่ด้านใน
 
 ![Paper React   React Native 29](https://user-images.githubusercontent.com/85179/63178875-1b1b6e80-c075-11e9-82a6-d187cfcc7606.png)
 
@@ -193,58 +154,39 @@ function App() {
 
 ```js
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-
 import { Provider } from 'react-redux'
 import configureStore from "./redux/store";
 
-import HeaderBar from './components/HeaderBar';
-import MapBranch from './components/MapBranch';
-import StatChart from './components/StatChart';
+import MenuBar from './components/MenuBar';
 
-import { Layout, Menu, Row, Col } from 'antd';
-const { Header, Content, Footer } = Layout;
-
-
+import { Layout } from 'antd';
+import HomePage from './pages/home-page/HomePage';
+const { Footer } = Layout;
 
 const store = configureStore();
 
 function App() {
   return (
     <Provider store={store}>
-    <div>
-      <Layout className="layout">
-        <HeaderBar />
-        <Content style={{
-          padding: '0 50px'
-        }}>
-          <div
-            style={{
-              background: '#fff',
-              padding: 24,
-              minHeight: 280
-            }}>
-            <Row gutter={16}>
-              <Col span={12}><MapBranch /></Col>
-              <Col span={12}><StatChart/></Col>
-            </Row>
-
-          </div>
-        </Content>
-        <Footer style={{
-          textAlign: 'center'
-        }}>React Redux Workshop ©2012-2019 Created by Nextflow.in.th</Footer>
-      </Layout>,
-    </div>
+      <div>
+        <Layout className="layout">
+          <MenuBar />
+          <HomePage />
+          <Footer style={{
+            textAlign: 'center'
+          }}>React Redux Workshop ©2012-2019 Created by Nextflow.in.th</Footer>
+        </Layout>,
+      </div>
     </Provider>
   );
 }
 
 export default App;
+
 ```
 
-## 7. Mapping component เข้ากับ redux connect เพื่อสร้างเป็น component container
+## 6. Mapping component เข้ากับ redux connect เพื่อสร้างเป็น component container
 
 ![Paper React   React Native 28](https://user-images.githubusercontent.com/85179/63178859-15258d80-c075-11e9-9a0b-359a3743f06c.png)
 
@@ -252,23 +194,23 @@ React Component ทั่วไป จะไม่มีการเชื่อ
 
 เราเรียก Component พวกนี้ว่า **Redux Container** หรือ **Component Container** ครับ
 
-เริ่มจาก `src/components/MapBranch.js`
+เริ่มจาก `src/pages/home-page/NoteList.js`
 
 เรา import module ชื่อ `connect` เข้ามาก่อน 
 
 ```js
-// snippet 'redux'
+// ใช้ snippet 'redux' ได้
 import { connect } from "react-redux";
 ```
 
 จากนั้นเราจะย้าย `export default` จากที่ใช้กับ Class ของเรา ไปใช้กับส่วนอื่น
 
 ```js
-export default class MapBranch extends Component {
+export default class NoteList extends Component {
 
 // เป็น
 
-class MapBranch extends Component {
+class NoteList extends Component {
 ```
 
 ซึ่งเราจะมาเขียนในส่วนด้านล่างแทน
@@ -286,10 +228,10 @@ const mapDispatchToProps = {
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(MapBranch) 
+export default connect(mapStateToProps, mapDispatchToProps)(NoteList) 
 ```
 
-## 8. จับคู่ค่า state ที่จะส่งออกมาจาก store เข้ากับ props ของ component
+## 7. จับคู่ค่า state ที่จะส่งออกมาจาก store เข้ากับ props ของ component
 
 ในที่นี้ Reducer ของเรามี initialState มีที่ข้อมูลของตำแหน่งสาขาอยู่ 
 
@@ -299,19 +241,19 @@ export default connect(mapStateToProps, mapDispatchToProps)(MapBranch)
 
 ```js
 const mapStateToProps = (state) => ({
-    branches: state.branches
+    noteData: state.notes
 })
 ```
 หรือแบบนี้ก็ได้
 ```js
 const mapStateToProps = (state) => {
     return {
-        branches: state.branches
+        noteData: state.notes
     }
 }
 ```
 
-## 9. สลับมาดึงข้อมูลจาก props ของ component ที่ได้จากการ map กับ Redux store 
+## 8. สลับมาดึงข้อมูลจาก props ของ component ที่ได้จากการ map กับ Redux store 
 
 `mapStateToProps` เป็นส่วนที่เราเขียนดึงค่าจาก state ที่ได้ ให้กับ `props` ดังนั้นในที่นี้เราจึงสามารถดึงค่า `this.props.branches` มาใช้ใน component ได้ 
 
