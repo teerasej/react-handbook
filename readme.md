@@ -26,6 +26,7 @@
 
 # React in Action 
 
+- [Note App](/practice/note-app-saga/readme.md)
 - [Location Selector](/practice/location-selector/readme.md)
 - [Branch Web App](practice/dashboard-app/readme.md)
 
