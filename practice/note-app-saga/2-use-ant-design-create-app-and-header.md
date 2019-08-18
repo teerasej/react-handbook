@@ -28,7 +28,6 @@ export default class MenuBar extends Component {
   render() {
     return (
       <Header>
-        <div className="logo"/>
         <Menu
           theme="dark"
           mode="horizontal"
