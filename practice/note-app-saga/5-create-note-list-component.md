@@ -3,6 +3,8 @@
 
 ## 1. สร้างไฟล์ NoteList component
 
+- [อ้างอิง Ant Design - List Component](https://ant.design/components/list/)
+
 สร้างไฟล์ `src/pages/home-page/NoteList.js` 
 
 ในที่นี้เราจะมีการเอา List component มาจาก Ant Design ด้วย

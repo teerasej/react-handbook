@@ -3,9 +3,12 @@
 
 ## 1. สร้างไฟล์ NoteInputBox component
 
+- [อ้างอิง Ant Design - Form Component](https://ant.design/components/form/)
+- [อ้างอิง Ant Design - Card Component](https://ant.design/components/card/)
+
 สร้างไฟล์ `src/pages/home-page/NoteInputBox.js` 
 
-ในที่นี้เราจะมีการเอา Form, Input, Button, Card component มาจาก Ant Design ด้วย
+ในที่นี้เราจะมีการเอา `Form`, `Input`, `Button`, `Card` component มาจาก Ant Design ด้วย
 
 ```js
 import React, { Component } from 'react'

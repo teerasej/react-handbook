@@ -21,6 +21,8 @@ export default class HomePage extends Component {
 
 ## 2. ย้ายโค้ดส่วน Content มาไว้ใน HomePage.js
 
+- [อ้างอิง Ant Design - Layout Component](https://ant.design/components/layout/)
+
 ### ไฟล์เต็ม `src/pages/home-page/HomePage.js` 
 
 ```js

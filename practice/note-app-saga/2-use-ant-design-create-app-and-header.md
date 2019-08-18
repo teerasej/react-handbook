@@ -17,7 +17,8 @@
 
 ## 2. สร้าง MenuBar component สำหรับแสดงเมนู
 
-- [อ้างอิง Menu Component](https://ant.design/components/menu/)
+- [อ้างอิง Ant Design - Menu Component](https://ant.design/components/menu/)
+- [อ้างอิง Ant Design - Layout Component](https://ant.design/components/layout/)
 
 สร้างไฟล์​ `src/components/MenuBar.js`
 
@@ -47,7 +48,7 @@ export default class MenuBar extends Component {
 
 ## 3. ใช้ Layout component ของ AntDesign ในการจัดหน้าตาของ App Component
 
-> Reference: [Layout](https://ant.design/components/layout/) 
+- [อ้างอิง Ant Design - Layout Component](https://ant.design/components/layout/)
 
 เปิดไฟล์ `src/App.js`
 
