@@ -17,6 +17,8 @@
 
 ## 2. สร้าง MenuBar component สำหรับแสดงเมนู
 
+- [อ้างอิง Menu Component](https://ant.design/components/menu/)
+
 สร้างไฟล์​ `src/components/MenuBar.js`
 
 ```js
