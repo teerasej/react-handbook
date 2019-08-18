@@ -1,6 +1,8 @@
 
 # 11. ใช้งาน Push module ในการ redirect
 
+- [อ้่างอิงการใช้งาน React Router - Push Module](https://github.com/supasate/connected-react-router/blob/master/FAQ.md#how-to-navigate-with-redux-action)
+
 ## 1. สร้าง UI ของหน้า Login 
 
 เปิดไฟล์​ `src/pages/login-page/LoginPage.js`

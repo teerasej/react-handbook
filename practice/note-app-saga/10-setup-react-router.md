@@ -1,6 +1,19 @@
 
 # สร้างระบบ Navigation ด้วย React Router
 
+- [อ้่างอิงการติดตั้งใช้งาน React Router](https://github.com/supasate/connected-react-router) 
+
+## รูปแบบของ React-Redux App ก่อนและหลังใช้งาน Router
+
+ก่อนใช้ Router
+
+![Paper React   React Native 33](https://user-images.githubusercontent.com/85179/63219432-19989600-c19c-11e9-88d0-dad7984be2a2.png)
+
+หลังใช้ Router
+
+![Paper React   React Native 34](https://user-images.githubusercontent.com/85179/63219433-1a312c80-c19c-11e9-9b0f-7db4d665a800.png)
+
+
 ## 1. ติดตั้ง Module 
 
 ```bash
@@ -96,7 +109,7 @@ export default function configureStore() {
     return store;
 }
 ```
-## 4. ลบ <Provider> ออกจาก App.js 
+## 4. ลบ `<Provider>` ออกจาก App.js 
 
 ไฟล์เต็ม src/App.js
 
