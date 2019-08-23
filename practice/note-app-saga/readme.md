@@ -35,4 +35,14 @@
 16. [ทดสอบใช้งาน saga ผ่าน Action](16-using-action-with-saga.md)
 17. [สร้าง Saga สำหรับ Sign In Operation](17-saga-sign-in.md)
 
+## Multiple Reducer
+
+18. [Refactor และแปลง App จาก function component เป็น Class component](18-spinner-refactor-app-comp.md)
+19. [ครอบ spin component ทั้ง App เพื่อควบคุม loading จาก Reducer](19-spinner-component.md)
+20. [สร้าง app reducer เพื่อกำหนด state](20-spin-create-app-reducer.md)
+21. [สร้าง Action และ Reducer case สำหรับอัพเดตสถานะ](21-spinner-create-action-and-reducer-case.md)
+[22. วาง App Component ให้อยู่ในสถานะ Loading](22-spinner-set-loading-state.md)
+23. เปิดไปยังหน้า home เมื่อเสร็จกระบวนการ
+24. เพิ่ม delay effect เพื่อจำลองการหน่วงเวลา signin
+
 ## Testing the React
