@@ -68,6 +68,10 @@ export default function configureStore() {
 }
 ```
 
+สังเกตว่าเราเริ่มมีการเอา middleware มาใช้กับ Redux Store ผ่าน `applyMiddleware()`
+
+โดยตัวแรกที่เอามาใช้ก็คือ `redux-logger`
+
 และเราจะใช้ `compose` จาก redux เป็นตัวประกอบ middleware เดิม และ middleware ของ `react-router`เข้าไปใน store 
 
 ```js
