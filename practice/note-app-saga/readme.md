@@ -35,14 +35,19 @@
 16. [ทดสอบใช้งาน saga ผ่าน Action](16-using-action-with-saga.md)
 17. [สร้าง Saga สำหรับ Sign In Operation](17-saga-sign-in.md)
 
-## Multiple Reducer
+## Test React 
 
-18. [Refactor และแปลง App จาก function component เป็น Class component](18-spinner-refactor-app-comp.md)
-19. [ครอบ spin component ทั้ง App เพื่อควบคุม loading จาก Reducer](19-spinner-component.md)
-20. [สร้าง app reducer เพื่อกำหนด state](20-spin-create-app-reducer.md)
-21. [สร้าง Action และ Reducer case สำหรับอัพเดตสถานะ](21-spinner-create-action-and-reducer-case.md)
-[22. วาง App Component ให้อยู่ในสถานะ Loading](22-spinner-set-loading-state.md)
-23. เปิดไปยังหน้า home เมื่อเสร็จกระบวนการ
-24. เพิ่ม delay effect เพื่อจำลองการหน่วงเวลา signin
+18. [ติดตั้ง Module และ Extension เพ่ิมเติม](18-0-setup-test.md)
+19. [เตรียมเขียน Test UI ตัวแรก](18-1-prepare-first-test.md)
+20. [ทดสอบว่ามี Spin Component อยู่ใน App Component ไหม](18-2-test-spin-exist.md)
+21. [test ค่า App.props.loading และ implement](18-3-default-props.md)
+22. [test initial state ของแอพต้อง return false](18-4-initial-app-state-return-false.md)
 
-## Testing the React
+## Test Saga
+
+23. [ติดตั้ง redux-saga-test-plan](23-install-saga-test-plan.md)
+24. [สร้าง Unit Test ของ Saga](24-test-signin-saga.md)
+25. [test การทำงานของ doSignIn Saga](25-test-saga-signin-success.md)
+26. [เขียน test unit ตอน signin failed](26-test-signin-saga-failed.md)
+27. [เขียนโค้ด saga ให้ผ่าน](27-test-signin-saga-implement.md)
+28. [ทดลองเขียน Integration Test](28-test-signin-saga-integrate-1.md)
