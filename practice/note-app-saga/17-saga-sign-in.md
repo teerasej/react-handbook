@@ -40,7 +40,7 @@ export default {
 import { takeEvery, put } from "redux-saga/effects";
 import actions from "../actions";
 
-function* watchIncrementAsync(action) {
+function* watchSignIn(action) {
     yield takeEvery(actions.ActionTypes.SIGN_IN_START, doSignIn)
 }
 
@@ -72,11 +72,11 @@ export default watchIncrementAsync;
 import { all } from 'redux-saga/effects'
 import incrementAsync from './increment.saga';
 import helloWorld from "./hello.saga";
-import signIn from "./signin.saga";
+import signInSaga from "./signin.saga";
 
 export default function* rootSaga() {
     yield all([
-        signIn(),
+        signInSaga(),
         helloWorld(),
         incrementAsync()
     ])
