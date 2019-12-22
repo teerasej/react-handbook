@@ -17,7 +17,7 @@
 ```html
 <body>
     <div id="root"></div>
-    <script type="text/javacript">
+    <script type="text/javascript">
         ReactDOM.render(
             React.createElement("h1", {"style": {"color": "red"}}, "Hello World"),
             document.getElementById("root")
