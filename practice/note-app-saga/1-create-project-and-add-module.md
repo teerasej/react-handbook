@@ -23,3 +23,10 @@ npx create-react-app note-app
 cd note-app
 npm i react react-dom redux react-redux antd css-animation redux-saga
 ```
+
+หรือถ้าใช้ yarn
+
+```bash
+cd note-app
+yarn add react react-dom redux react-redux antd css-animation redux-saga
+```
