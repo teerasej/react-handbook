@@ -30,10 +30,13 @@ yarn add react react-dom redux react-redux antd css-animation
 
 ### 3. สร้างโปรเจคตาม Scope ต่อไปนี้
 
-- ในโปรเจคจะมี 2 Component แยกกัน คือ
-    1. ตัวแสดงจำนวนนับ 
-    2. ปุ่ม "เพิ่มจำนวน" (add 1 button)
+- ในแอพจะมี 2 Component แยกกัน คือ
+    1. ตัวแสดงจำนวนนับ (Counter Component)
+    2. ปุ่ม "เพิ่มจำนวน" (AddNumber Component)
 - หากกดปุ่มเพิ่มจำนวนนับ ตัวเลขที่แสดงต้องบวกจำนวนเพิ่มอีก 1 
+
+![Paper React_React_Native 78](https://user-images.githubusercontent.com/85179/71774258-2e849300-2f9e-11ea-9010-2d1b06151cfb.png)
+
 
 
 ## โจทย์ท้าทายเพิ่มเติม
