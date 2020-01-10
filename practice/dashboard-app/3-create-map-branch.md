@@ -90,7 +90,7 @@ npm i google-map-react
 
 ```js
 static defaultProps = {
-    // Kerry Siam Seaport Location
+    // default location
     center: {
       lat: 13.7200452,
       lng: 100.5135078
