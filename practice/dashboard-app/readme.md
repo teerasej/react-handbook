@@ -31,3 +31,7 @@
 11. [สร้าง Action ที่จัดการเรื่อง Login และเปิดหน้า dashboard](11-authenticate-and-push.md)
 12. [จัดแยก Reducer ให้สะดวกมากขึ้น](12-manage-reducer.md)
 13. [Authorization ด้วย JWT](13-authorize-with-jwt.md) 
+
+## Deploy with Docker 
+
+- [ทดสอบใช้งาน Docker กับ React Project](deploy-docker.md)
