@@ -1,6 +1,20 @@
 
 # สร้าง Map Branch Component
 
+## ติดตั้ง package 
+
+ถ้ายังไม่ได้ติดตั้ง package ชื่อ `google-map-react` ล่ะก็ อย่าลืมรันคำสั่งติดตั้งให้กับโปรเจคล่ะ 
+
+```bash
+npm i google-map-react
+```
+
+### ใช้ yarn?
+
+```bash
+yarn add google-map-react
+```
+
 ## 1. สร้าง MapBranch Component
 
 สร้างไฟล์ `src/components/MapBranch.js` (ใช้ snippet: rcc)

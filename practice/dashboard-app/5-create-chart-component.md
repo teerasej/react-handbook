@@ -1,6 +1,20 @@
 
 # สร้าง Stat Chart Component
 
+## ติดตั้ง package 
+
+ถ้ายังไม่ได้ติดตั้ง package ชื่อ `react-google-charts` ล่ะก็ อย่าลืมรันคำสั่งติดตั้งให้กับโปรเจคล่ะ 
+
+```bash
+npm i react-google-charts
+```
+
+### ใช้ yarn?
+
+```bash
+yarn add react-google-charts
+```
+
 ## 1. สร้าง StatChart Component
 
 สร้างไฟล์ `src/components/StatChart.js`
