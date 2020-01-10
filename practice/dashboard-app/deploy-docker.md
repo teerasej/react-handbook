@@ -12,7 +12,7 @@
 
 ## 3. ดาวน์โหลดโปรเจคตัวอย่าง 
 
-1. ดาวน์โหลดโปรเจคจากที่นี่
+1. [ดาวน์โหลดโปรเจคจากที่นี่](https://www.dropbox.com/s/ifelitoz5awv73r/react-web-project-for-docker.zip?dl=0)
 2. ทดสอบติดตั้ง node module และรันทดสอบการทำงาน
 
 ## 4. สร้างไฟล์ dockerfile
@@ -85,12 +85,3 @@ docker run -p 3001:3000 --rm teerasej/dashboardreact
 - `-p 3001:3000` เปิด port 3001 ให้ host (คือเครื่องที่รัน docker container) และเปิด port 3000 ให้ container ตัวอื่น
 - `--rm` ลบ container เมื่อสั่งหยุดทำงาน
 
-
-## Example in Production
-
-```yml
-FROM nginx:1.16.0-alpine
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
-```
