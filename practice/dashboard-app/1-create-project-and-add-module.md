@@ -23,3 +23,10 @@ npx create-react-app branch-dashboard
 cd branch-dashboard
 npm i react react-dom redux react-redux antd css-animation react-google-charts google-map-react
 ```
+
+### ใช้ yarn?
+
+```bash
+cd branch-dashboard
+yarn add react react-dom redux react-redux antd css-animation react-google-charts google-map-react
+```
