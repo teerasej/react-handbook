@@ -242,22 +242,14 @@ const showBranchData = (branchId) => ({
 
 const requestInitData = () => {
     return async (dispatch) => {
-        let onSuccess = (success) => {
-            console.log('load data success');
-            return success;
-        }
-
-        let onError = (error) => {
-            console.log(`Load data error: ${error}`);
-            return error;
-        }
-
         try {
             const success = await fetch('https://www.nextflow.in.th/api/branch-info/branch.json');
             console.log(success);
-            return onSuccess(success);
+            console.log('load data success');
+            return success;
         } catch (error) {
-            return onError(error)
+            console.log(`Load data error: ${error}`);
+            return error;
         }
     }
 }
