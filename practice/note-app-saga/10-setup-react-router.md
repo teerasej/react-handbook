@@ -1,7 +1,7 @@
 
 # สร้างระบบ Navigation ด้วย React Router
 
-- [อ้่างอิงการติดตั้งใช้งาน React Router](https://github.com/supasate/connected-react-router) 
+- [อ้างอิงการติดตั้งใช้งาน React Router](https://github.com/supasate/connected-react-router) 
 
 ## รูปแบบของ React-Redux App ก่อนและหลังใช้งาน Router
 

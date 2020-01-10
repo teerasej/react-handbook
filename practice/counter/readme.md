@@ -47,3 +47,7 @@ yarn add react react-dom redux react-redux antd css-animation
 - ถ้าจำนวนนับที่แสดง หาร 2 ลงตัวให้เป็นข้อความสีฟ้า ถ้าหาร 2 ไม่ลงตัวให้แสดงเป็นข้อความสีเขียว
 - ถ้าจำนวนนับมีค่าเท่ากับ 0 ให้ซ่อนปุ่ม "ลดจำนวน"
 - ถ้าจำนวนนับมีค่าเท่ากับ 10 ให้ซ่อนปุ่ม "เพิ่มจำนวน"
+
+## เฉลยจ้า
+
+- [Counter App with React & Redux - Finish](https://github.com/teerasej/react-redux-counter-example)
