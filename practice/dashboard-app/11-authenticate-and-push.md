@@ -81,7 +81,7 @@ const requestInitData = () => {
         }
  
         try {
-            const success = await API.get('./branch.json');
+            const success = await API.get('https://www.nextflow.in.th/api/branch-info/branch.json');
             console.log(success.data);
             dispatch({ type: ActionTypes.REQUEST_INIT_DATA_SUCCESS, payload: success.data })
             return onSuccess(success);
@@ -282,7 +282,7 @@ const requestInitData = () => {
         }
  
         try {
-            const success = await API.get('./branch.json');
+            const success = await API.get('https://www.nextflow.in.th/api/branch-info/branch.json');
             console.log(success.data);
             dispatch({ type: ActionTypes.REQUEST_INIT_DATA_SUCCESS, payload: success.data })
             return onSuccess(success);
