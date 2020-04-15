@@ -8,7 +8,7 @@
 
     const Hello = () => {
         return (
-            <div className="blue">
+            <div className="red">
                 <h1>Hello World</h1>
             </div>
         )
