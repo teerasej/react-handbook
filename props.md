@@ -8,7 +8,7 @@
 
     const Hello = (props) => {
         return (
-            <div className="blue">
+            <div className="red">
                 <h1>Hello {props.library}</h1>
                 <p>{props.message}</p>
             </div>
@@ -37,7 +37,7 @@
 
     const Hello = ({library, message}) => {
         return (
-            <div className="blue">
+            <div className="red">
                 <h1>Hello {library}</h1>
                 <p>{message}</p>
             </div>
