@@ -7,6 +7,8 @@
 
 > การเปิดไฟล์ index.html โดยตรงอาจจะทำให้ไม่สามารถโหลดไฟล์บางตัวในโปรเจค ทำให้ application ไม่สามารถทำงานได้อย่างสมบูรณ์ 
 
+ดูเพิ่มเติมในส่วน [Create-react-app: Deployment](https://create-react-app.dev/docs/deployment/)
+
 ## ถ้าอยากทดสอบรันจริงๆตอนนี้...
 
 รัน server ง่ายๆ ได้ด้วยคำสั่ง 
