@@ -55,15 +55,42 @@ export default class HeaderBar extends Component {
 ```js
 // เอา HeaderBar มาวางไว้เป็นเมนูด้านบน
 import HeaderBar from './components/HeaderBar';
-
 import {Layout, Menu, Breadcrumb} from 'antd';
+
 const {Header, Content, Footer} = Layout;
 ```
 
-ในส่วนของ method `render()` ก็สามารถใช้
+## 4. แปลง App component จาก Fucntion component เป็น class component
+
+เปิดไฟล์ `src/App.js`
+
+เราจะปรับการประกาศ App component แบบ function เป็นแบบ class
+
+### จาก function component
 
 ```js
-render() {
+function App() {
+  return ...;
+}
+```
+
+### เป็น class component
+
+```js
+class App extends React.Component {
+  render() {
+    return ...;
+  }
+}
+```
+
+## 5. กำหนด UI ใน App component 
+
+ในส่วนของ method `render()` เราจะใช้ JSX component ของ Ant Design และ JSX ธรรมดาสร้างหน้าแอพ ดังตัวอย่างด้านล่าง
+
+```js
+class App extends React.Component {
+  render() {
     return (
     <div>
       <Layout className="layout">
@@ -83,11 +110,12 @@ render() {
         }}>React Redux Workshop ©2012-2019 Created by Nextflow.in.th</Footer>
       </Layout>,
     </div>
-    )
+    );
+  }
 }
 ```
 
-### ไฟล์ App.js เต็ม
+## ไฟล์ App.js เต็ม
 
 ```js
 import React from 'react';
@@ -97,8 +125,9 @@ import HeaderBar from './components/HeaderBar';
 import {Layout, Menu, Breadcrumb} from 'antd';
 const {Header, Content, Footer} = Layout;
 
-function App() {
-  return (
+class App extends React.Component {
+  render() {
+    return (
     <div>
       <Layout className="layout">
         <HeaderBar/>
@@ -117,7 +146,8 @@ function App() {
         }}>React Redux Workshop ©2012-2019 Created by Nextflow.in.th</Footer>
       </Layout>,
     </div>
-  );
+    );
+  }
 }
 
 export default App;
