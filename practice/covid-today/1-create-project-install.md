@@ -4,7 +4,7 @@
 ## 1. สร้างโปรเจค
 
 ```bash
-npx create-react-app note-app
+npx create-react-app covid-today-app
 ```
 
 ## 2. ติดตั้ง module เบื้องต้น
