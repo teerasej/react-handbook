@@ -158,7 +158,7 @@ export default class StatChart extends Component {
                             [10, 32],
                             [11, 35],
                         ]}
-                        ...options
+                        
                         rootProps={{ 'data-testid': '1' }}
                     />
                 </Card>

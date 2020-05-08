@@ -270,7 +270,6 @@ import GoogleMapReact from 'google-map-react';
 class MapBranch extends Component {
 
   static defaultProps = {
-    // Kerry Siam Seaport Location
     center: {
       lat: 13.7200452,
       lng: 100.5135078
