@@ -24,6 +24,11 @@
 
 - [Debugging React with VSCode](/debugging.md)
 
+# React + Redux 
+
+- [Branch Dashboard (Redux focused)](practice/dashboard-app-redux-focus/readme.md)
+
+
 # React in Action 
 
 - [Note App](/practice/note-app-saga/readme.md)
