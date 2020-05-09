@@ -17,16 +17,27 @@ State เป็นการกำหนดสถานะต่างๆ ขอ�
 
     class App extends React.Component {
 
+        // declare state
         state = {
-            loggedIn: true
+            loggedIn: false
         }
 
         render() {
+            // use state for final component
+            let userLogInStatus;
+
+            if(this.state.loggedIn === true){
+                userLogInStatus = <h1>User is logged in</h1>;
+            } else {
+                userLogInStatus = <p>Please log in before use</p>;
+            }
+
+
             return (
                 <div>
-                    <div>User is {this.state.loggedIn ? "logged in" : "not logged in"}</div>
-                    <Food name="Tom Yam Goong"/>
-                    <Food name ="Khao Pad Sapparod"/>
+                    {userLogInStatus}
+                    <Food name="Tom Yam Goong" />
+                    <Food name="Khao Pad Sapparod" />
                 </div>
             )
         }
