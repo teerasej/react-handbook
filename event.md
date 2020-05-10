@@ -3,6 +3,97 @@
 
 เราสามารถใช้ method ของ Class ผูกเข้ากับ event attribute ของ HTML ได้โดยตรง
 
+## ไฟล์เริ่มต้น
+
+```js
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https:/unpkg.com/react@16.7.0/umd/react.development.js"></script>
+    <script src="https:/unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+    <script src="https:/unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Nextflow React Playground</title>
+</head>
+
+<body>
+
+    <style>
+        #header {
+            font-size: 30px;
+        }
+
+        .red {
+            color: red;
+        }
+    </style>
+
+    <div id="root"></div>
+    <script type="text/babel">
+
+        let city = 'Bangkok';
+
+        const Hello = (props) => {
+            return (
+                <div className="red">
+                    <h1>Hello {props.library}</h1>
+                    <p>{props.message}</p>
+                </div>
+            )
+        }
+
+        const Food = ({ name }) => <h2>{name}</h2>;
+
+        class App extends React.Component {
+            state = {
+                loggedIn: false
+            }
+
+            // declare logged in function
+
+
+            // declare logged out function 
+
+
+            render() {
+
+                let userLogInStatus;
+
+                if(this.state.loggedIn === true){
+                    userLogInStatus = <h1>User is logged in</h1>;
+                } else {
+                    userLogInStatus = <p>Please log in before use</p>;
+                }
+
+                return (
+                    <div>
+                        {userLogInStatus}
+                        <Food name="Tom Yam Goong" />
+                        <Food name="Khao Pad Sapparod" />
+                    </div>
+                )
+            }
+        }
+
+
+        ReactDOM.render(
+            (
+                <div>
+                    <App />
+                    <Hello library="Angular" message="Yep!" />
+                </div>
+            ),
+            document.getElementById("root")
+        );
+
+    </script>
+</body>
+
+</html>
+```
+
 ## ตัวอย่าง แบบใช้ Arrow Function
 
 ```html
