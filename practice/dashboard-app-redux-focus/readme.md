@@ -9,7 +9,7 @@
 ## Setup Redux ขึ้นมาในโปรเจค
 
 0. [สร้างโปรเจค template](1-setup.md)
-1. [ดาวน์โหลดโปรเจคตัวอย่าง และคืนสภาพ](1-1-download-restore-project.md) 
+1. [ดาวน์โหลดโปรเจคตัวอย่าง และคืนสภาพ](1-download-restore-project.md) 
 2. [สร้าง Actions](2-create-actions.md)
 3. [สร้าง Reducer](3-create-reducer.md)
 4. [สร้าง Redux Store และเชื่อมกับ Reducer](4-create-store.md)
