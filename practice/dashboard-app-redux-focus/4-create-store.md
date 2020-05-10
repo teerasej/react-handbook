@@ -15,7 +15,7 @@ import reducer from "./reducer";
 import { createStore } from 'redux'; 
 
 // ประกาศ function ชื่อ 'configureStore' เดี๋ยวเอาไปใช้ในไฟล์ App.js
-export const configureStore = () => {
+export default function configureStore() {
 
     // ใส่ reducer เข้าไปใน store และ return ไปใช้งานที่อื่น
     const store = createStore(reducer);

@@ -11,7 +11,7 @@
 import { Provider } from "react-redux";
 
 // เรียกใช้ function ที่สร้างเตรียมไว้ในไฟล์ store.js
-import { configureStore } from './redux/store';
+import configureStore from './redux/store';
 const { Content, Footer } = Layout;
 
 // ใช้งาน function ของเรา ก็จะได้ store ที่มี reducer อยู่ข้างใน พร้อมใช้งาน
