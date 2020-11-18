@@ -4,8 +4,8 @@
 เราสามารถเอา React มาใช้งานในเว็บเพจเราได้ทันที ผ่านการใช้งาน `<script>`
 
 ```html
- <script src="https:/unpkg.com/react@16.7.0/umd/react.development.js"></script>
- <script src="https:/unpkg.com/react-dom@16.7.0/umd/react-dom.development.js"></script>
+ <script src="https:/unpkg.com/react@16.8.0/umd/react.development.js"></script>
+ <script src="https:/unpkg.com/react-dom@16.8.0/umd/react-dom.development.js"></script>
 ```
 
 ## Render a component 
