@@ -54,7 +54,7 @@ export default class MenuBar extends Component {
 
 เปิดไฟล์ `src/App.js`
 
-เราจะเพ่ิมคำสั่ง import Component ต่างๆ ของ Ant Design เข้ามา รวมถึง `Layout`
+เราจะเพิ่มคำสั่ง import Component ต่างๆ ของ Ant Design เข้ามา รวมถึง `Layout`
 
 ```js
 // เอา MenuBar มาวางไว้เป็นเมนูด้านบน
@@ -84,7 +84,7 @@ render() {
         </Content>
         <Footer style={{
           textAlign: 'center'
-        }}>React Redux Workshop ©2012-2019 Created by Nextflow.in.th</Footer>
+        }}>React Redux Workshop ©2012-2021 Created by Nextflow.in.th</Footer>
       </Layout>,
     </div>
     )
