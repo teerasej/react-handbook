@@ -22,14 +22,10 @@
 6. [State](/state.md)
 7. [Event](/event.md) 
 
-# Debugging React with VSCode
-
-- [Debugging React with VSCode](/debugging.md)
 
 # React + Redux 
 
 - [Branch Dashboard (Redux focused)](practice/dashboard-app-redux-focus/readme.md)
-
 
 # React in Action 
 
@@ -45,3 +41,7 @@
 # Publish React
 
 - [การ Publish โปรเจคไปใช้งาน](publish.md) 
+
+# Debugging React with VSCode
+
+- [Debugging React with VSCode](/debugging.md)
