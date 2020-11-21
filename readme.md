@@ -14,6 +14,12 @@
 
 > [ดาวน์โหลดไฟล์ workshop](https://www.dropbox.com/s/3dsxeez9judzk7j/fundamental2020.zip?dl=0)
 
+หรือใช้คำสั่ง สร้าง react project
+
+```bash
+npx create-react-app my-app
+```
+
 1. [Using React](/using-react.md)
 2. [JSX](/jsx.md)
 3. [Function Component](/function-component.md)
