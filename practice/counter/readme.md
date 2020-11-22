@@ -50,4 +50,5 @@ yarn add react react-dom redux react-redux antd css-animation
 
 ## เฉลยจ้า
 
-- [Counter App with React & Redux - Finish](https://github.com/teerasej/react-redux-counter-example)
+- [Walkthrough](answer.md)
+- [โปรเจค Counter App with React & Redux - Finish](https://github.com/teerasej/react-redux-counter-example)

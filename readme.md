@@ -28,10 +28,10 @@ npx create-react-app my-app
 6. [State](/state.md)
 7. [Event](/event.md) 
 
+# Redux 
 
-# React + Redux 
+- [Counter](/practice/counter/readme.md)
 
-- [Branch Dashboard (Redux focused)](practice/dashboard-app-redux-focus/readme.md)
 
 # React in Action 
 
@@ -40,9 +40,9 @@ npx create-react-app my-app
 - [Branch Web App](practice/dashboard-app/readme.md)
 - [COVID-19 Report](practice/covid-today/readme.md)
 
-# Quest 
+# React + Redux 
 
-- [Counter](/practice/counter/readme.md)
+- [Branch Dashboard (Redux focused)](practice/dashboard-app-redux-focus/readme.md)
 
 # Publish React
 
