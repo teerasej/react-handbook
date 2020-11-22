@@ -4,8 +4,8 @@
 ## React Component
 
 1. [สร้างโปรเจค และติดตั้ง module ที่จำเป็น](1-setup.md)
-2. [สร้างส่วนแสดงจำนวน Counter](2-display-component.md)
-3. [สร้างส่วนปุ่มเพิ่มจำนวน Counter](3-counter-button-component.md)
+2. [สร้าง Component ส่วนแสดงจำนวน Counter](2-display-component.md)
+3. [สร้าง Component ส่วน**ปุ่ม**เพิ่มจำนวน Counter](3-counter-button-component.md)
 4. [แสดงทั้ง 2 component ไว้ใน App component](4-show-in-app.md)
 
 ## Redux: consume object
