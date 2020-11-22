@@ -9,7 +9,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-export class Counter extends Component {
+export default class Counter extends Component {
     render() {
         return (
             <div>

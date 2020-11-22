@@ -9,7 +9,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-export class AddNumber extends Component {
+export default class AddNumber extends Component {
 
     addMoreNumber = () => {
        
