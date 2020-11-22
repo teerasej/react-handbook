@@ -8,7 +8,6 @@
 
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import action from '../redux/action'
 
 export class AddNumber extends Component {
 
