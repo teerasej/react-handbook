@@ -26,6 +26,33 @@
 - การส่งค่าเข้ามาใน `props` ของ component จะแลดูเหมือน HTML attribute ตามปกติ
 - ค่า HTML attribute จะเป็นชื่อของ property ใน `props` เช่น `<Nextflow logo="brand.jpg">` ก็จะเป็น `props.logo` 
 
+## การใช้งาน Props ใน Class component
+
+ค่าของ props ที่ส่งเข้ามาใน Class component สามารถเข้าถึงได้จาก properties ของ class ในชื่อเดียวกัน
+
+```js
+this.props.<props name>
+```
+
+### ตัวอย่าง
+
+```jsx
+class App extends React.Component {
+        render() {
+            return (
+                <div>
+                    <Food name={this.props.foodName}/>
+                </div>
+            )
+        }
+    }
+
+    ReactDOM.render(
+        <App foodName="ต้มยำกุ้ง"/>,
+        document.getElementById("root")
+    );
+```
+
 ## De-construct props
 
 เราสามารถประกาศค่าที่ส่งเข้ามาโดยตรง และไม่ผ่าน Props ได้ด้วย 
@@ -51,3 +78,5 @@
     
 </script>
 ```
+
+

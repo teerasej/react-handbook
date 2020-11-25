@@ -23,10 +23,10 @@ npx create-react-app my-app
 1. [Using React](/using-react.md)
 2. [JSX](/jsx.md)
 3. [Function Component](/function-component.md)
-4. [Props](/props.md)
-5. [Class Component](/class-component.md)
-6. [State](/state.md)
-7. [Event](/event.md) 
+4. [Class Component](/class-component.md)
+5. [Props](/props.md)
+6. [Event](/event.md)
+7. [State](/state.md)
 
 # Redux 
 
