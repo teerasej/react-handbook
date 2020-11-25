@@ -5,10 +5,14 @@
 
 สนใจติดต่อ จัดอบรม [โทร 083-071-3373](tel:083-071-3373) หรือส่ง Email มาที่ [training@nextflow.in.th](mailto:training@nextflow.in.th)
 
+ดูส่วนของ [Node Handbook ได้ที่นี่](https://github.com/teerasej/node-handbook/)
+
 ## Download & Setup file
 
 - [Slide](https://www.dropbox.com/s/f5pjh83hdu97wai/ReactJS.pdf?dl=0)
-- [React Developer tools](/react-developer-tool.md)
+- [NodeJS Runtime](https://nodejs.org/en/)
+- [Visual Studio Code](https://code.visualstudio.com/)
+- [Nextflow React Extension Pack](https://marketplace.visualstudio.com/items?itemName=teerasej.nextflow-react-native-pack)
 
 ## React Fundamental 
 
@@ -20,7 +24,7 @@
 npx create-react-app my-app
 ```
 
-1. [Using React](/using-react.md)
+1. [Using React ในไฟล์ HTML ธรรมดา](/using-react.md)
 2. [JSX](/jsx.md)
 3. [Function Component](/function-component.md)
 4. [Class Component](/class-component.md)
