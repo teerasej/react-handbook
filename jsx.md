@@ -9,6 +9,8 @@ Babel จะทำให้เราสามารถใช้ JSX แบบเ
 <script src="https:/unpkg.com/@babel/standalone/babel.min.js"></script>
 ```
 
+ถ้าเราสร้างโปรเจคจากคำสั่ง `npx create-react-app` จะมีการตั้งค่า babel อยู่ในโปรเจคแล้ว ไม่ต้องทำอะไรเพิ่มเติม
+
 ## Use JSX in react
 
 JSX จะเป็นส่วนของ HTML ที่เขียนลงไปใน JavaScript โดยตรง 
