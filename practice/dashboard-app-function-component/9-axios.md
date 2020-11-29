@@ -7,99 +7,96 @@
 npm i axios
 ```
 
-## 2. สร้าง API module สำหรับตั้งค่าให้ axios
+หรือ 
 
-สร้างไฟล์ `src/services/API.js`
+```bash
+yarn add axios
+```
+
+## 2. ทำการกำหนดค่าพื้นฐานของ Axios ไว้ใช้งาน
+
+สร้างไฟล์ `src/redux/action.js`
 
 ```js
 import axios from "axios";
 
-export default axios.create({
+//..
+
+const axiosClient = axios.create({
     responseType: "json"
-}); 
+});
 ```
 
 ## 3. ใช้ axios ในดึงข้อมูล json
 
-เปิดไฟล์ `src/redux/actions.js`
+```js
+// src/App.js
 
-import `API` module และใช้ในการดึงข้อมูล
+//..
+useEffect(() => {
+
+    const requestInitData = async (dispatch) => {
+      try {
+        // ใช้ Axios เข้าถึงข้อมูล JSON แทน
+        const success = await axiosClient.get('./branch.json');
+        console.log(success.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    requestInitData()
+  })
+```
+
+## 4. เพิ่ม Action type สำหรับแสดงสถานะผลการเรียกข้อมูล
 
 ```js
-import API from "../services/API";
-
-const ActionTypes = {
-    SHOW_BRANCH_DATA: "SHOW_BRANCH_DATA",
-    REQUEST_INIT_DATA: "REQUEST_INIT_DATA"
-}
-
-
-const showBranchData = (branchId) => ({
-    type: ActionTypes.SHOW_BRANCH_DATA,
-    payload: branchId
-})
-
-const requestInitData = () => {
-    return async (dispatch) => {
-
-        try {
-            const success = await API.get('./branch.json');
-            console.log(success.data);
-            
-        } catch (error) {
-            console.error(error);
-        }
-    }
-}
+// src/redux/action.js
 
 export default {
-    requestInitData,
-    showBranchData,
-    ActionTypes
+    SHOW_BRANCH_DATA: "SHOW_BRANCH_DATA",
+    REQUEST_INIT_DATA: "REQUEST_INIT_DATA",
+
+    // ในกรณีที่ได้ข้อมูลมาอย่างไม่มีปัญหา
+    REQUEST_INIT_DATA_SUCCESS: "REQUEST_INIT_DATA_SUCCESS",
+
+    // ในกรณีที่มีการผิดพลาดในการเรียกข้อมูล
+    REQUEST_INIT_DATA_FAILED: "REQUEST_INIT_DATA_FAILED",
 }
 ```
 
-## 4. เพิ่ม Action สำหรับตอบรับผลการเรียกข้อมูล
+จากจุดนี้ให้ทำการ dispatch action type ที่เหมาะสมจาก App component
 
 ```js
-import API from "../services/API";
-
-const ActionTypes = {
-    SHOW_BRANCH_DATA: "SHOW_BRANCH_DATA",
-    REQUEST_INIT_DATA: "REQUEST_INIT_DATA",
-    REQUEST_INIT_DATA_SUCCESS: "REQUEST_INIT_DATA_SUCCESS",
-    REQUEST_INIT_DATA_FAILED: "REQUEST_INIT_DATA_FAILED"
-}
-
-
-const showBranchData = (branchId) => ({
-    type: ActionTypes.SHOW_BRANCH_DATA,
-    payload: branchId
-})
-
+// src/App.js
 const requestInitData = () => {
     return async (dispatch) => {
         
         try {
             const success = await API.get('./branch.json');
             console.log(success.data);
-            dispatch({ type: ActionTypes.REQUEST_INIT_DATA_SUCCESS, payload: success.data })
+
+            // dispatch action พร้อมข้อมูลที่ได้เข้า Redux store
+            dispatch({ 
+                type: ActionTypes.REQUEST_INIT_DATA_SUCCESS, 
+                payload: success.data 
+            })
         } catch (error) {
-            dispatch({ type: ActionTypes.REQUEST_INIT_DATA_FAILED, payload: error })
+            // dispatch action พร้อม error ทีไ่ด้เข้า redux store
+            dispatch({ 
+                type: ActionTypes.REQUEST_INIT_DATA_FAILED,
+                payload: error 
+            })
         }
     }
 }
 
-export default {
-    requestInitData,
-    showBranchData,
-    ActionTypes
-}
 ```
 
 ## 5. สร้างกลไกแจ้งเตือนผลการโหลดข้อมูล
 
-เปิดไฟล์ `src/redux/dashboard.reducer.js`
+เปิดไฟล์ `src/redux/reducer.js`
 
 เริ่มจากกำหนดค่า `initialState.app` เพื่อใช้อ้างอิงใน App Component ว่าต้องแสดง notification หรือไม่
 
@@ -113,32 +110,16 @@ const initialState = {
 }
 ```
 
-ถ้าไม่ต้องแสดง ให้กำหนด `initialState.app.notification` เป็น {}
+ถ้าไม่ต้องแสดงตัวแจ้งเตือน ให้กำหนด `initialState.app.notification` เป็น {}
 
-เช่นกรณีของการกดเลือกหมุดแล้วแสดงข้อมูลในกราฟ **ไม่ต้องแสดง notification**
 
-```js
- case Actions.ActionTypes.SHOW_BRANCH_DATA: {
-     //..
-    if() {
-     return {
-            ...state,
-            branchDataInChart: finalChartData,
-            app: { notification: {} }
-     }
-    //..
-    } else {
-        return { ...state, app: { notification: {} } }
-    }   
- }
-```
-
-แต่ถ้าเป็น Action ผลลัพธ์จากการโหลดข้อมูล (ทั้งสำเร็จ และไม่สำเร็จ) จะมีการกำหนดค่าให้ ``
+แต่ถ้าเป็น Action ผลลัพธ์จากการโหลดข้อมูล (ทั้งสำเร็จ และไม่สำเร็จ) จะมีการกำหนดค่าให้ `app.notification`
 
 ```js
-case Actions.ActionTypes.REQUEST_INIT_DATA_SUCCESS: {
+case Action.REQUEST_INIT_DATA_SUCCESS: {
     return {
         ...state,
+        // กำหนดข้อมูลที่จะใช้ในกลไกสร้าง notification
         app: {
             notification: {
                 message: 'Data Loaded',
@@ -149,9 +130,10 @@ case Actions.ActionTypes.REQUEST_INIT_DATA_SUCCESS: {
     }
 }
 
-case Actions.ActionTypes.REQUEST_INIT_DATA_FAILED: {
+case Action.REQUEST_INIT_DATA_FAILED: {
     return { 
         ...state,
+        // กำหนดข้อมูล error ที่จะใช้ในกลไกสร้าง notification
         app: {
             notification: {
                 message: payload.message,
@@ -163,28 +145,29 @@ case Actions.ActionTypes.REQUEST_INIT_DATA_FAILED: {
 }
 ```
 
-### ไฟล์เต็ม dashboard.reducer.js
+### ไฟล์เต็ม reducer.js
 
 ```js
-import Actions from "./actions";
-import BranchModel from "../models/branchModel";
+import branchModel from "../models/branchModel"
+import Action from './action'
+
 
 const initialState = {
-    branches: BranchModel.branches,
+    branches: branchModel.branches,
     branchDataInChart: [['Month', 'Amount'], ['', 0]],
     app: {
-        
+
     }
 }
 
 export default (state = initialState, { type, payload }) => {
     switch (type) {
 
-        case Actions.ActionTypes.SHOW_BRANCH_DATA: {
+        case Action.SHOW_BRANCH_DATA: {
 
             console.log(`branchId: ${payload}`)
 
-            let selectingBranch = BranchModel.branches.find(branch => {
+            let selectingBranch = state.branches.find(branch => {
                 return branch.id === payload;
             })
 
@@ -206,16 +189,15 @@ export default (state = initialState, { type, payload }) => {
 
                 return {
                     ...state,
-                    branchDataInChart: finalChartData,
-                    app: { notification: {} }
+                    branchDataInChart: finalChartData
                 }
 
             } else {
-                return { ...state, app: { notification: {} } }
+                return { ...state }
             }
         }
 
-        case Actions.ActionTypes.REQUEST_INIT_DATA_SUCCESS: {
+        case Action.REQUEST_INIT_DATA_SUCCESS: {
             return {
                 ...state,
                 app: {
@@ -228,7 +210,7 @@ export default (state = initialState, { type, payload }) => {
             }
         }
 
-        case Actions.ActionTypes.REQUEST_INIT_DATA_FAILED: {
+        case Action.REQUEST_INIT_DATA_FAILED: {
             return { 
                 ...state,
                 app: {
@@ -246,6 +228,7 @@ export default (state = initialState, { type, payload }) => {
     }
 }
 
+
 ```
 
 ## 6. แสดง notification โดยพิจารณาจาก state ที่ได้
@@ -255,128 +238,131 @@ export default (state = initialState, { type, payload }) => {
 แล้ว import `message` ของ Ant Design เข้ามา
 
 ```js
-import { Layout, Menu, Row, Col, message } from 'antd';
+import { Layout, Row, Col, message } from 'antd';
 ```
 
-จากนั้น กำหนดค่า `state.app.notification` ให้กับ `props.notification` ใน `mapStateToProps`
+จากนั้น เรียกใช้ค่า `state.app.notification` ผ่าน React hook ที่ชื่อ `useSelector()`
 
 ```js
-const mapStateToProps = (state) => {
+import { useDispatch, useSelector } from 'react-redux'
 
-  console.log(state)
-  return {
-    notification: state.app.notification
-  }
+//..
 
-}
+const notification = useSelector(state => state.app.notification)
 ```
 
 
-จากนั้นเรียกใช้ ค่า `props` ใน method `componentDidUpdate()` ของ React component ที่จะทำงานทุกครั้งที่ state มีการอัพเดต (ในที่นี้มาจาก Reducer)
+จากนั้นเรียกใช้ React hook `useEffect` สำหรับค่า notification โดยเฉพาะ
 
 ```js
-componentDidUpdate() {
+const notification = useSelector(state => state.app.notification)
 
-    if (this.props.notification.isShow) {
-      if (this.props.notification.isError) {
-        message.error(this.props.notification.message);
-      } else {
-        message.success(this.props.notification.message);
-      }
+useEffect(() => {
+
+    // เช็คข้อมูล notification เพื่อแจ้งเตือน
+    if (notification && notification.isShow) {
+        if (notification.isError) {
+        message.error(notification.message);
+        } else {
+        message.success(notification.message);
+        }
     }
-
-  }
+// รัน use effect อีกครั้งถ้ามีการเปลี่ยนแปลงค่าของ notification
+}, [notification])
 ```
  
 ### ไฟล์เต็ม App.js
 
-```js
-import React, { Component } from 'react';
-import logo from './logo.svg';
+```jsx
+//import logo from './logo.svg';
 import './App.css';
-
-import { connect } from 'react-redux';
-
 import HeaderBar from './components/HeaderBar';
+import { Layout, Row, Col, message } from 'antd';
 import MapBranch from './components/MapBranch';
 import StatChart from './components/StatChart';
 
-import { Layout, Menu, Row, Col, message } from 'antd';
-import actions from './redux/actions';
-const { Header, Content, Footer } = Layout;
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 
-class App extends Component {
+import Action from './redux/action'
+import axios from "axios";
 
-  componentDidMount() {
-    this.props.initData();
-  }
+const axiosClient = axios.create({
+  responseType: "json"
+});
 
-  componentDidUpdate() {
+const { Content, Footer } = Layout;
 
-    if (this.props.notification.isShow) {
-      if (this.props.notification.isError) {
-        message.error(this.props.notification.message);
-      } else {
-        message.success(this.props.notification.message);
+
+function App() {
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+
+    const requestInitData = async (dispatch) => {
+      try {
+        const success = await axiosClient.get('./branch.json');
+        console.log(success.data);
+        dispatch({ type: Action.REQUEST_INIT_DATA_SUCCESS, payload: success.data })
+      } catch (error) {
+        console.error(error);
+        dispatch({ type: Action.REQUEST_INIT_DATA_FAILED, payload: error })
       }
     }
 
-  }
+    requestInitData(dispatch)
+  }, [])
 
-  render() {
-    return (
 
-      <div>
-        <Layout className="layout">
-          <HeaderBar />
-          <Content style={{
-            padding: '0 50px'
-          }}>
-            <div
-              style={{
-                background: '#fff',
-                padding: 24,
-                minHeight: 280
-              }}>
-              <Row gutter={16}>
-                <Col span={12}><MapBranch /></Col>
-                <Col span={12}><StatChart /></Col>
-              </Row>
+  const notification = useSelector(state => state.app.notification)
 
-            </div>
-          </Content>
-          <Footer style={{
-            textAlign: 'center'
-          }}>React Redux Workshop ©2012-2019 Created by Nextflow.in.th</Footer>
-        </Layout>,
-      </div>
+  useEffect(() => {
+    if (notification && notification.isShow) {
+      if (notification.isError) {
+        message.error(notification.message);
+      } else {
+        message.success(notification.message);
+      }
+    }
+  }, [notification])
 
-    );
-  }
+  
+  
+
+  return (
+    <div>
+      <Layout className="layout">
+        <HeaderBar />
+        <Content style={{
+          padding: '0 50px'
+        }}>
+          <div
+            style={{
+              background: '#fff',
+              padding: 24,
+              minHeight: 280
+            }}>
+            <Row gutter={16}>
+              <Col span={12}><MapBranch /></Col>
+              <Col span={12}><StatChart /></Col>
+            </Row>
+
+          </div>
+        </Content>
+        <Footer style={{
+          textAlign: 'center'
+        }}>React Redux Workshop ©2012-2020 Created by Nextflow.in.th</Footer>
+      </Layout>,
+    </div>
+  );
 }
 
-const mapStateToProps = (state) => {
-
-  console.log(state)
-  return {
-    notification: state.app.notification
-  }
-
-}
-
-const mapDispatchToProps = dispatch => {
-  return {
-    initData: () => dispatch(actions.requestInitData())
-  }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
 ```
 
 ## 7. กำหนดข้อมูลสาขาจาก Web API ให้กับ state
 
-เปิดไฟล์ `src/redux/dashboard.reducer.js`
+เปิดไฟล์ `src/redux/reducer.js`
 
 ก่อนอื่น เรากำหนดค่า `initialState.branches` เป็น `[]`
 
@@ -449,12 +435,11 @@ export default (state = initialState, { type, payload }) => {
 
                 return {
                     ...state,
-                    branchDataInChart: finalChartData,
-                    app: { notification: {} }
+                    branchDataInChart: finalChartData
                 }
 
             } else {
-                return { ...state, app: { notification: {} } }
+                return { ...state }
             }
         }
 

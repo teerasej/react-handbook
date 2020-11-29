@@ -14,23 +14,11 @@ Redux ประกอบไปด้วย 3 ส่วนที่ต้อง�
 
 Action ส่วนใหญ่จะถูกส่งจาก Component มายัง reducer
 
-สร้างไฟล์ `src/redux/actions.js`
+สร้างไฟล์ `src/redux/action.js`
 
 ```js
-
-const ActionTypes = {
-    SHOW_BRANCH_DATA: "SHOW_BRANCH_DATA"
-}
-
-
-const showBranchData = (payload) => ({
-    type: ActionTypes.SHOW_BRANCH_DATA,
-    payload: payload
-})
-
 export default {
-    showBranchData,
-    ActionTypes
+    SHOW_BRANCH_DATA: "SHOW_BRANCH_DATA"
 }
 ```
 
@@ -47,14 +35,14 @@ _เปรียบได้คล้ายๆ กับ Event ใน MVC แต
 
 ## 2. สร้าง Reducer สำหรับหน้า Dashboard
 
-สร้างไฟล์ `src/redux/dashboard.reducer.js`
+สร้างไฟล์ `src/redux/reducer.js`
 
 ใช่้ snippet `rxreducer` ได้
 
-แล้ว import `./actions` เข้ามา เพื่อกำหนด Action Type เป็น 1 เคสของ Reducer
+แล้ว import `./action` เข้ามา เพื่อกำหนด Action Type เป็น 1 เคสของ Reducer
 
 ```js
-import Actions from "./actions";
+import Action from './action' 
 
 const initialState = {
 
@@ -63,7 +51,7 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
     switch (type) {
 
-    case Actions.ActionTypes.SHOW_BRANCH_DATA: {
+    case Action.SHOW_BRANCH_DATA: {
         return { ...state, ...payload }
     }
 
@@ -86,7 +74,7 @@ Reducer เป็นส่วนที่จะจัดการรับ Actio
 import **BranchModel** มากำหนดเป็นค่าเริ่มต้นของ `initialState` 
 
 ```js
-import Actions from "./actions";
+import Action from "./action";
 import BranchModel from "../models/branchModel";
 
 const initialState = {
@@ -96,7 +84,7 @@ const initialState = {
 export default (state = initialState, { type, payload }) => {
     switch (type) {
 
-    case Actions.ActionTypes.SHOW_BRANCH_DATA: {
+    case Action.SHOW_BRANCH_DATA: {
         return { ...state, ...payload }
     }
         
@@ -113,19 +101,34 @@ reducer ต้องการ ข้อมูลเริ่มต้น สำ�
 
 เราสามารถกำหนดอะไรลงไปใน **initialState** ก็ได้ เหมือนเป็น object ของ JavaScript ทั่วไป
 
-## 4. สร้าง store สำหรับใช้ใน App
+## 4. สร้าง Redux store สำหรับใช้กับ App component
 
-สร้างไฟล์ `src/redux/store.js`
+![Paper React   React Native 29](https://user-images.githubusercontent.com/85179/63178875-1b1b6e80-c075-11e9-82a6-d187cfcc7606.png)
+
+เปิดไฟล์ `src/index.js`
 
 ```js
 
-import { createStore } from 'redux';   
-import dashboardReducer from "./dashboard.reducer";
+// เริ่มจาก import `Provider` component จาก `react-redux` 
+import { Provider } from 'react-redux';
+// เริ่มจาก import `createStore()` function จาก `redux` 
+import { createStore } from 'redux';
+// import reducer จาก module ที่สร้างไว้
+import reducer from './redux/reducer'
 
-export default function configureStore() {
-    const store = createStore(dashboardReducer);
-    return store;
-} 
+// กำหนด reducer ในการสร้าง store
+const store = createStore(reducer)
+
+ReactDOM.render(
+  <React.StrictMode>
+    {/* ครอบ store ด้วย Provider component */}
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
 
 ### Store
 
@@ -133,272 +136,134 @@ export default function configureStore() {
 
 ในที่นี้สร้างเป็นไฟล์แยก เพื่อการปรับแต่งการทำงานได้ง่าย
 
-```
 
-## 5. จัดระเบียบ import เพราะเดี๋ยวต้อง import ของ redux เข้ามาอีก
 
-เปิดไฟล์ `src/App.js`
+### ไฟล์เต็ม index.js
 
 ```js
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-import HeaderBar from './components/HeaderBar';
-import MapBranch from './components/MapBranch';
-import StatChart from './components/StatChart';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducer from './redux/reducer'
 
-import { Layout, Menu, Row, Col } from 'antd';
-const { Header, Content, Footer } = Layout;
+const store = createStore(reducer)
 
-// ...
-```
-
-## 6. นำ store ที่สร้างไว้ ในกำหนดให้กับ Provider component ที่จะส่งผ่าน store ให้กับทุก component ที่อยู่ด้านใน
-
-![Paper React   React Native 29](https://user-images.githubusercontent.com/85179/63178875-1b1b6e80-c075-11e9-82a6-d187cfcc7606.png)
-
-เปิดไฟล์ `src/App.js`
-
-เริ่มจาก import `Provider` component จาก `react-redux` และตัว store ที่เราสร้างไว้ 
-
-```js
-import { Provider } from 'react-redux'
-import configureStore from "./redux/store";
-```
-
-เรียกใช้งาน `configureStore()` เพื่อสร้าง store object
-
-```js
-const store = configureStore();
-```
-
-และกำหนด `store` ที่ได้ให้กับ `<Provider>` สังเกตว่าเราจะครอบทุกส่วนของ Application 
-
-```js
-function App() {
-  return (
+ReactDOM.render(
+  <React.StrictMode>
     <Provider store={store}>
-        <div>
-            <Layout className="layout">
-                ...
-            </Layout>
-        </div>
+      <App />
     </Provider>
-  );
-}
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
 ```
 
-### ไฟล์เต็ม App.js
-
-```js
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import { Provider } from 'react-redux'
-import configureStore from "./redux/store";
-
-import HeaderBar from './components/HeaderBar';
-import MapBranch from './components/MapBranch';
-import StatChart from './components/StatChart';
-
-import { Layout, Menu, Row, Col } from 'antd';
-const { Header, Content, Footer } = Layout;
-
-
-
-const store = configureStore();
-
-function App() {
-  return (
-    <Provider store={store}>
-    <div>
-      <Layout className="layout">
-        <HeaderBar />
-        <Content style={{
-          padding: '0 50px'
-        }}>
-          <div
-            style={{
-              background: '#fff',
-              padding: 24,
-              minHeight: 280
-            }}>
-            <Row gutter={16}>
-              <Col span={12}><MapBranch /></Col>
-              <Col span={12}><StatChart/></Col>
-            </Row>
-
-          </div>
-        </Content>
-        <Footer style={{
-          textAlign: 'center'
-        }}>React Redux Workshop ©2012-2019 Created by Nextflow.in.th</Footer>
-      </Layout>,
-    </div>
-    </Provider>
-  );
-}
-
-export default App;
-```
-
-## 7. Mapping component เข้ากับ redux connect เพื่อสร้างเป็น component container
+## 7. จับคู่ค่า state ที่จะส่งออกมาจาก Redux Store 
 
 ![Paper React   React Native 28](https://user-images.githubusercontent.com/85179/63178859-15258d80-c075-11e9-9a0b-359a3743f06c.png)
 
-React Component ทั่วไป จะไม่มีการเชื่อมกับระบบ Redux ตั้งแต่แรก แต่เราสามารถจับมันมาตั้งค่าให้ใช้งานกับ Redux ได้
+Function component จะสามารถเข้าถึง Redux store ได้ ผ่าน React Hook ที่ Redux ได้เตรียมไว้ให้
 
-เราเรียก Component พวกนี้ว่า **Redux Container** หรือ **Component Container** ครับ
+Component ที่มีการเข้าถึง Redux พวกนี้ เรียกในอีกชื่อว่า **Redux Container** หรือ **Component Container** ครับ
+
+> ซึ่งการที่เราจะใช้ React Hook เข้าถึง Redux Store ได้ ต้องมีการครอบ Component ทั้งหมด ด้วย store ผ่าน Provider ซะก่อน ตามขั้นตอนที่แล้ว
 
 เริ่มจาก `src/components/MapBranch.js`
 
-เรา import module ชื่อ `connect` เข้ามาก่อน 
+```jsx
+import { useSelector } from 'react-redux'
 
-```js
-// snippet 'redux'
-import { connect } from "react-redux";
+const branches = useSelector(state => state.branches);
+console.log('braches: ' + branches);
 ```
 
-จากนั้นเราจะย้าย `export default` จากที่ใช้กับ Class ของเรา ไปใช้กับส่วนอื่น
+## 8. เรียกใช้งาน Redux state ที่ได้มาจาก `useSelector()`
+
 
 ```js
-export default class MapBranch extends Component {
+const handleApiLoaded = (map, maps) => {
+        let bounds = new maps.LatLngBounds();
 
-// เป็น
-
-class MapBranch extends Component {
-```
-
-ซึ่งเราจะมาเขียนในส่วนด้านล่างแทน
-
-เป็น
-
-```js
-// snippet 'reduxmap'
-const mapStateToProps = (state) => ({
-
-})
-
-const mapDispatchToProps = {
-
-}
+        // สลับมาใช้ตัว branch ที่ได้มาจาก Redux store ผ่านการเรียกใช้ useSelector()
+        branches.forEach(branch => {
+            new maps.Marker({
+                position: branch.position,
+                map,
+                title: branch.name
+            });
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(MapBranch) 
-```
+            bounds.extend(branch.position);
+        });
 
-## 8. จับคู่ค่า state ที่จะส่งออกมาจาก store เข้ากับ props ของ component
-
-ในที่นี้ Reducer ของเรามี initialState มีที่ข้อมูลของตำแหน่งสาขาอยู่ 
-
-ซึ่งถ้าต้องการเอามาใช้ใน Container เราก็สามารถเขียนค่าใน `mapStateToProps` ได้แบบด้านล่าง 
-
-**state** ที่เห็นตรงนี้คือ state ที่ reducer ส่งออกมาให้ Component ต่างๆ นั่นเอง
-
-```js
-const mapStateToProps = (state) => ({
-    branches: state.branches
-})
-```
-หรือแบบนี้ก็ได้
-```js
-const mapStateToProps = (state) => {
-    return {
-        branches: state.branches
+        map.fitBounds(bounds);
     }
-}
-```
-
-## 9. สลับมาดึงข้อมูลจาก props ของ component ที่ได้จากการ map กับ Redux store 
-
-`mapStateToProps` เป็นส่วนที่เราเขียนดึงค่าจาก state ที่ได้ ให้กับ `props` ดังนั้นในที่นี้เราจึงสามารถดึงค่า `this.props.branches` มาใช้ใน component ได้ 
-
-```js
-handleApiLoaded(map, maps) {
-
-    let bounds = new maps.LatLngBounds();
-    let branches = this.props.branches;
-
-    branches.forEach(branch => {
-      //..
-    });
-
-    //..
-  }
 ```
 
 ### ไฟล์เต็ม MapBranch.js
 
-```js
-import React, { Component } from 'react'
+```jsx
+import React from 'react'
 import GoogleMapReact from 'google-map-react';
+import { useSelector } from 'react-redux'
 
-import { connect } from "react-redux";
-
-class MapBranch extends Component {
-
-  static defaultProps = {
-    // Kerry Siam Seaport Location
-    center: {
-      lat: 13.7200452,
-      lng: 100.5135078
+export default function MapBranch({
+    center = {
+        lat: 13.7200452,
+        lng: 100.5135078
     },
-    zoom: 15
-  };
+    zoom = 15
+}) {
 
-  handleApiLoaded(map, maps) {
+    const branches = useSelector(state => state.branches);
+    console.log('braches: ' + branches);
 
-    let bounds = new maps.LatLngBounds();
-    let branches = this.props.branches;
+    const handleApiLoaded = (map, maps) => {
+        let bounds = new maps.LatLngBounds();
 
-    branches.forEach(branch => {
-      new maps.Marker({
-        position: branch.position,
-        map,
-        title: branch.name
-      });
+        branches.forEach(branch => {
+            let marker = new maps.Marker({
+                position: branch.position,
+                map,
+                title: branch.name
+            });
 
-      
-      bounds.extend(branch.position);
-      // Alternative
-      // bounds.extend(new maps.LatLng(branch.lat, branch.lng);
-    });
+            bounds.extend(branch.position);
+        });
 
-    map.fitBounds(bounds); 
-  }
+        map.fitBounds(bounds);
+    }
 
-  render() {
     return (
-      <div style={{
-        height: '100vh',
-        width: '100%'
-      }}>
-        <GoogleMapReact
-          bootstrapURLKeys={{
-            key: 'AIzaSyBDqlW1EIlePcA48oLVV_kYQJXm9dQ75uw'
-          }}
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-          yesIWantToUseGoogleMapApiInternals
-          onGoogleApiLoaded={({ map, maps }) => this.handleApiLoaded(map, maps)}
-        >
+        <div style={{
+            height: '100vh',
+            width: '100%'
+        }}>
+            <GoogleMapReact
+                bootstrapURLKeys={{
+                    key: 'AIzaSyBDqlW1EIlePcA48oLVV_kYQJXm9dQ75uw'
+                }}
+                defaultCenter={center}
+                defaultZoom={zoom}
 
-        </GoogleMapReact>
-      </div>
+                yesIWantToUseGoogleMapApiInternals
+                onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
+            >
+
+            </GoogleMapReact>
+        </div>
     )
-  }
 }
 
-const mapStateToProps = (state) => ({
-  branches: state.branches
-})
-
-const mapDispatchToProps = {
-  
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(MapBranch)
 ```

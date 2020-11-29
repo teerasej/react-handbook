@@ -7,19 +7,43 @@
 
 ```js
 const headquarter = {
+  id: 1,
   name: 'Silom',
   position: {
     lat: 13.7200452,
     lng: 100.5135078
+  },
+  chartData: {
+    chartField: ['Month','Amount'],
+    datas: [
+      { month: 'February', amount: 10392 },
+      { month: 'March', amount: 18239 },
+      { month: 'April', amount: 14290 },
+      { month: 'May', amount: 23912 },
+      { month: 'June', amount: 26167 },
+      { month: 'July', amount: 28199 },
+    ]
   }
 }
 
 let branches = [
   headquarter, {
+    id: 2,    
     name: 'Cholburi',
     position: {
       lat: 13.1247584,
       lng: 100.9133127
+    },
+    chartData: {
+      chartField: ['Month','Amount'],
+      datas: [
+        { month: 'February', amount: 70032 },
+        { month: 'March', amount: 54789 },
+        { month: 'April', amount: 62789 },
+        { month: 'May', amount: 89272 },
+        { month: 'June', amount: 100328 },
+        { month: 'July', amount: 128903 },
+      ]
     }
   }
 ]
@@ -27,7 +51,7 @@ let branches = [
 export default {
   branches,
   headquarter
-}; 
+}
 ```
 
 ## 2. ปักหมุดตามข้อมูลที่มี
@@ -45,7 +69,7 @@ import BranchModel from "../models/branchModel";
 ```js
 const handleApiLoaded = (map, maps) => {
     BranchModel.branches.forEach(branch => {
-        new maps.Marker({
+        let marker = new maps.Marker({
             position: branch.position,
             map,
             title: branch.name
@@ -64,7 +88,7 @@ const handleApiLoaded = (map, maps) => {
     let bounds = new maps.LatLngBounds();
 
     BranchModel.branches.forEach(branch => {
-      new maps.Marker({
+      let marker = new maps.Marker({
         position: branch.position,
         map,
         title: branch.name
@@ -99,7 +123,7 @@ export default function MapBranch({
         let bounds = new maps.LatLngBounds();
 
         BranchModel.branches.forEach(branch => {
-            new maps.Marker({
+            let marker = new maps.Marker({
                 position: branch.position,
                 map,
                 title: branch.name
@@ -107,8 +131,7 @@ export default function MapBranch({
 
 
             bounds.extend(branch.position);
-            // Alternative
-            // bounds.extend(new maps.LatLng(branch.lat, branch.lng);
+            
         });
 
         map.fitBounds(bounds);

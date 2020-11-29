@@ -5,13 +5,12 @@
 
 - [Chrome Extension เพื่อยกเลิก CORS ในฝั่ง Browser](https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi)
 
-## 1. ติดตั้ง redux-thunk และ redux-logger
+## 1. ติดตั้ง redux-logger
 
-- `redux-thunk` จะเป็นส่วนที่ทำงานแบบ Asynchronous ได้
 - `redux-logger` เป็นกลไก log console ของ redux 
 
 ```bash
-npm i redux-thunk redux-logger
+npm i  redux-logger
 ```
 
 ## 2. ย้ายข้อมูลไปที่ branch.json
@@ -64,292 +63,125 @@ npm i redux-thunk redux-logger
 } 
 ```
 
-## 3. เรียกใช้งาน thunk และ logger ใน Redux store 
+## 3. เรียกใช้งาน Logger ใน Redux store 
 
 จำที่พลบอกว่า store เหมือนเป็นตัวเชื่อมทุกอย่างเข้าด้วยกันได้ไหม? 
 
-เราจะเอา thunk และ logger มาใส่ในส่วนที่เรียกว่า `applyMiddleware` ครับ
+เราจะเอา logger มาใส่ในส่วนที่เรียกว่า `applyMiddleware` ครับ
 
 ```js
-import { createStore, applyMiddleware } from 'redux';   
-import dashboardReducer from "./dashboard.reducer";
+// src/index.js
+import { createStore, applyMiddleware } from 'redux'  
+import { Provider } from 'react-redux'
+import reducer from './redux/reducer'
+import { logger } from 'redux-logger'
 
-import thunk from 'redux-thunk';
-import { logger } from 'redux-logger';
+const store = createStore(
+  reducer,
+  applyMiddleware(logger)
+)
+```
 
-export default function configureStore() {
-    const store = createStore(
-        dashboardReducer,
-        applyMiddleware(thunk, logger)
-    );
-    return store;
+
+## 5. สร้าง Action สำหรับดึงข้อมูล JSON 
+
+เปิดไฟล์ `src/redux/action.js`
+
+```js
+export default {
+    SHOW_BRANCH_DATA: "SHOW_BRANCH_DATA",
+
+    // กำหนด action type ใหม่
+    REQUEST_INIT_DATA: "REQUEST_INIT_DATA",
 }
 ```
 
-## 4. กำหนดให้ App เป็นตัวส่ง Action เพื่อเรียกดึงข้อมูลจาก API 
 
-เริ่มแรกเลย เราจะไปที่ `src/index.js` และย้าย Redux Provider มาไว้ที่นี่แทน
+## 7. เรียก Action สำหรับดึงข้อมูล JSON ใน App Component 
 
-```js
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+เราจะมีการเรียกใช้ React hook 2 ตัวในส่วนนี้
 
-import {Provider} from 'react-redux'
-import configureStore from "./redux/store";
+1. `useEffect()` ของ `react` จะไว้กำหนดการทำงานตอนที่ Component เริ่มถูกโหลดขึ้นมาใช้งาน
+2. `useDispatch()` ของ `react-redux` ไว้ใช้สำหรับการ dispatch action ในขั้นตอนต่อไป
 
-const store = configureStore();
 
-ReactDOM.render((
-  <Provider store={store}><App/></Provider>
-), document.getElementById('root'));
+### ไฟล์เต็ม App.js 
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls. Learn
-// more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
-```
-
-จากนั้น เราจะปรับ `App.js` ให้เป็น Class component 
-
-```js
-import React, { Component } from 'react';
+```jsx
 import logo from './logo.svg';
 import './App.css';
-
 import HeaderBar from './components/HeaderBar';
+import { Layout, Menu, Row, Col } from 'antd';
 import MapBranch from './components/MapBranch';
 import StatChart from './components/StatChart';
 
-import { Layout, Menu, Row, Col } from 'antd';
+import { useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+
+import Action from './redux/action'
+
 const { Header, Content, Footer } = Layout;
 
-class App extends Component {
-  render() {
-    return (
-    
-      <div>
-        <Layout className="layout">
-          <HeaderBar />
-          <Content style={{
-            padding: '0 50px'
-          }}>
-            <div
-              style={{
-                background: '#fff',
-                padding: 24,
-                minHeight: 280
-              }}>
-              <Row gutter={16}>
-                <Col span={12}><MapBranch /></Col>
-                <Col span={12}><StatChart/></Col>
-              </Row>
-  
-            </div>
-          </Content>
-          <Footer style={{
-            textAlign: 'center'
-          }}>React Redux Workshop ©2012-2019 Created by Nextflow.in.th</Footer>
-        </Layout>,
-      </div>
-      
-    );
-  }
+
+
+function App() {
+
+  const dispatch = useDispatch();
+
+  // ในที่นี้เราเรียกใช้ useEffect เพื่อให้โค้ดในส่วน callback function นี้ทำงานตอนที่ Web browser ทำการแสดงหน้าเว็บขึ้นมา
+  // การใช้ Empty array ([]) เป็น parameter ตัวที่ 2 ทำให้ callback function นี้ทำงานครั้งเดียว
+  // ถ้าไม่ใส่อะไรเลย จะทำงานทุกครั้งที่ render 
+  // ถ้าใส่ค่าตัวแปรลงไปใน [] จะมีการเทียบค่า ถ้าค่ามีการเปลี่ยนแปลงจะทำงานอีกครั้ง
+  // https://dev.to/trentyang/replace-lifecycle-with-hooks-in-react-3d4n
+  useEffect(() => {
+
+    const requestInitData = async (dispatch) => {
+      try {
+        const success = await fetch(
+          'https://www.nextflow.in.th/api/branch-info/branch.json',
+          // กำหนด request เป็น no-cors เพื่อลดปัญหาเรื่อง cors ระหว่างการพัฒนา
+          {
+            mode: 'no-cors'
+          }
+        )
+        console.log(success)
+        console.log('load data success')
+      } catch (error) {
+        console.log(`Load data error: ${error}`)
+      }
+    }
+
+    requestInitData()
+  }, [])
+
+  return (
+    <div>
+      <Layout className="layout">
+        <HeaderBar />
+        <Content style={{
+          padding: '0 50px'
+        }}>
+          <div
+            style={{
+              background: '#fff',
+              padding: 24,
+              minHeight: 280
+            }}>
+            <Row gutter={16}>
+              <Col span={12}><MapBranch /></Col>
+              <Col span={12}><StatChart /></Col>
+            </Row>
+
+          </div>
+        </Content>
+        <Footer style={{
+          textAlign: 'center'
+        }}>React Redux Workshop ©2012-2020 Created by Nextflow.in.th</Footer>
+      </Layout>,
+    </div>
+  );
 }
 
 export default App;
 
-```
-
-## 5. ทำ App Component ให้เป็น Redux container
-
-```js
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import { connect } from 'react-redux';
-
-import HeaderBar from './components/HeaderBar';
-import MapBranch from './components/MapBranch';
-import StatChart from './components/StatChart';
-
-import { Layout, Menu, Row, Col } from 'antd';
-const { Header, Content, Footer } = Layout;
-
-class App extends Component {
-  render() {
-    return (
-    
-      <div>
-        <Layout className="layout">
-          <HeaderBar />
-          <Content style={{
-            padding: '0 50px'
-          }}>
-            <div
-              style={{
-                background: '#fff',
-                padding: 24,
-                minHeight: 280
-              }}>
-              <Row gutter={16}>
-                <Col span={12}><MapBranch /></Col>
-                <Col span={12}><StatChart/></Col>
-              </Row>
-  
-            </div>
-          </Content>
-          <Footer style={{
-            textAlign: 'center'
-          }}>React Redux Workshop ©2012-2019 Created by Nextflow.in.th</Footer>
-        </Layout>,
-      </div>
-      
-    );
-  }
-}
-
-const mapStateToProps = (state) => ({
-  
-})
-
-const mapDispatchToProps = {
-  
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
-```
-
-## 6. สร้าง Action สำหรับดึงข้อมูล JSON 
-
-เปิดไฟล์ `src/redux/actions.js`
-
-```js
-const ActionTypes = {
-    SHOW_BRANCH_DATA: "SHOW_BRANCH_DATA",
-    REQUEST_INIT_DATA: "REQUEST_INIT_DATA"
-}
-
-
-const showBranchData = (branchId) => ({
-    type: ActionTypes.SHOW_BRANCH_DATA,
-    payload: branchId
-})
-
-const requestInitData = () => {
-    return async (dispatch) => {
-        try {
-            const success = await fetch('https://www.nextflow.in.th/api/branch-info/branch.json');
-            console.log(success);
-            console.log('load data success');
-            return success;
-        } catch (error) {
-            console.log(`Load data error: ${error}`);
-            return error;
-        }
-    }
-}
-
-export default {
-    requestInitData,
-    showBranchData,
-    ActionTypes
-}
-```
-
-
-## 7. เรียก Action สำหรับดึงข้อมูล JSON ใน App Component เมื่อ
-
-เราสามารถใช้ method `componentDidMount()` ตอนที่มีการแสดง App Component ได้ 
-
-```js
-class App extends Component {
-
-  componentDidMount() {
-    this.props.initData();
-  }
-```
-
-โดยเราทำการผูก action เข้ากับ props ในส่วนของ `mapDispatchToProps`
-
-```js
-const mapDispatchToProps = dispatch => {
-  return {
-    initData: () => dispatch(actions.requestInitData())
-  }
-}
-```
-
-### ไฟล์เต็ม App.js 
-
-```js
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-import { connect } from 'react-redux';
-
-import HeaderBar from './components/HeaderBar';
-import MapBranch from './components/MapBranch';
-import StatChart from './components/StatChart';
-
-import { Layout, Menu, Row, Col } from 'antd';
-import actions from './redux/actions';
-const { Header, Content, Footer } = Layout;
-
-
-class App extends Component {
-
-  componentDidMount() {
-    this.props.initData();
-  }
-
-  render() {
-    return (
-    
-      <div>
-        <Layout className="layout">
-          <HeaderBar />
-          <Content style={{
-            padding: '0 50px'
-          }}>
-            <div
-              style={{
-                background: '#fff',
-                padding: 24,
-                minHeight: 280
-              }}>
-              <Row gutter={16}>
-                <Col span={12}><MapBranch /></Col>
-                <Col span={12}><StatChart/></Col>
-              </Row>
-  
-            </div>
-          </Content>
-          <Footer style={{
-            textAlign: 'center'
-          }}>React Redux Workshop ©2012-2019 Created by Nextflow.in.th</Footer>
-        </Layout>,
-      </div>
-      
-    );
-  }
-}
-
-const mapStateToProps = (state) => ({
-  
-})
-
-const mapDispatchToProps = dispatch => {
-  return {
-    initData: () => dispatch(actions.requestInitData())
-  }
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
 ```
