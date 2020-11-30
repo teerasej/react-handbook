@@ -21,6 +21,10 @@
 10.  [กำหนด dispatch function ให้ Component เรียกใช้ผ่าน Props](10-declare-dispatch.md)
 11.  [กำหนดให้ reducer จัดการ Action และ payload ](11-update-redux-state-in-reducer.md)
 
+## เฉลย
+
+- [โปรเจค Counter App with React & Redux - แบบสมบูรณ์](https://github.com/teerasej/react-redux-counter-example)
+
 
 
 

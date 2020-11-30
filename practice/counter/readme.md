@@ -1,4 +1,11 @@
 
+# Counter App Workshop with Redux
+
+- [Counter App แบบ Function component](counter-function-component/readme.md)
+- [Counter App แบบ Class component](counter-class-component/readme.md)
+
+
+
 # โจทย์ Counter App
 
 ## ทดสอบ
@@ -48,7 +55,5 @@ yarn add react react-dom redux react-redux antd css-animation
 - ถ้าจำนวนนับมีค่าเท่ากับ 0 ให้ซ่อนปุ่ม "ลดจำนวน"
 - ถ้าจำนวนนับมีค่าเท่ากับ 10 ให้ซ่อนปุ่ม "เพิ่มจำนวน"
 
-## เฉลยจ้า
 
-- [Walkthrough](answer.md)
-- [โปรเจค Counter App with React & Redux - Finish](https://github.com/teerasej/react-redux-counter-example)
+
