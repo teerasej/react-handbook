@@ -39,9 +39,16 @@ npx create-react-app my-app
 
 # React in Action 
 
+## Function Component 
+
+- [Item Manager App](/practice/item-manager-app/readme.md)
+- [Dashboard Web App](practice/dashboard-app-function-component/readme.md) (Function component)
+
+## Class Component
+
 - [Note App](/practice/note-app-saga/readme.md)
 - [Location Selector](/practice/location-selector/readme.md)
-- [Branch Web App](practice/dashboard-app/readme.md)
+- [Dashboard Web App](practice/dashboard-app/readme.md)
 - [COVID-19 Report](practice/covid-today/readme.md)
 
 # React + Redux 
