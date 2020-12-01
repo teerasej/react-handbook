@@ -18,7 +18,6 @@ npx create-react-app branch-dashboard
 5.  redux-logger
 6.  react-router-dom 
 7.  connected-react-router
-8.  react-hook-form
 
 ```bash
 cd branch-dashboard
