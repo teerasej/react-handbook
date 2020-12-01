@@ -15,7 +15,7 @@ export default function IncreaseButton() {
 
     return (
         <div>
-            <button onClick={this.addMoreNumber}>เพิ่ม</button>
+            <button onClick={addMoreNumber}>เพิ่ม</button>
         </div>
     )
 }
