@@ -4,7 +4,7 @@
 ## 1. สร้างโปรเจค
 
 ```bash
-npx create-react-app branch-dashboard
+npx create-react-app item-manager
 ```
 
 ## 2. ติดตั้ง module เบื้องต้น
