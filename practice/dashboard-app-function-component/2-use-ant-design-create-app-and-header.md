@@ -76,8 +76,6 @@ function App() {
             minHeight: 280
           }}>
           
-          <HeaderBar/>
-          
           </div>
         </Content>
         <Footer style={{
@@ -115,8 +113,6 @@ function App() {
             padding: 24,
             minHeight: 280
           }}>
-          
-          <HeaderBar/>
           
           </div>
         </Content>
