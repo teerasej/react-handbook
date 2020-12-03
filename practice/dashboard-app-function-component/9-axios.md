@@ -38,7 +38,7 @@ useEffect(() => {
     const requestInitData = async (dispatch) => {
       try {
         // ใช้ Axios เข้าถึงข้อมูล JSON แทน
-        const success = await axiosClient.get('./branch.json');
+        const success = await axiosClient.get('https://www.nextflow.in.th/api/branch-info/branch.json');
         console.log(success.data);
       } catch (error) {
         console.error(error);
@@ -103,7 +103,12 @@ const requestInitData = () => {
 ```js
 const initialState = {
     branches: BranchModel.branches,
-    branchDataInChart: [['Month', 'Amount'], ['', 0]],
+    branchDataInChart: {
+      chartField: ['Month','Amount'],
+      datas: [
+        { month: '', amount: 0 }
+      ]
+    },
     app: {
         
     }
@@ -154,7 +159,12 @@ import Action from './action'
 
 const initialState = {
     branches: branchModel.branches,
-    branchDataInChart: [['Month', 'Amount'], ['', 0]],
+    branchDataInChart: {
+      chartField: ['Month','Amount'],
+      datas: [
+        { month: '', amount: 0 }
+      ]
+    },
     app: {
 
     }
@@ -172,24 +182,10 @@ export default (state = initialState, { type, payload }) => {
             })
 
             if (selectingBranch) {
-                let finalChartData = [];
-
-                finalChartData.push(selectingBranch.chartData.chartField);
-
-                let chartDatas = selectingBranch.chartData.datas;
-
-                if (chartDatas && chartDatas.length > 0) {
-                    chartDatas.forEach(data => {
-                        finalChartData.push([data.month, data.amount]);
-                    })
-                } else {
-                    finalChartData.push(['', 0]);
-                }
-
-
+            
                 return {
                     ...state,
-                    branchDataInChart: finalChartData
+                    branchDataInChart: { ...selectingBranch.chartData }
                 }
 
             } else {
@@ -369,7 +365,12 @@ export default App;
 ```js
 const initialState = {
     branches: [],
-    branchDataInChart: [['Month', 'Amount'], ['', 0]]
+    branchDataInChart: {
+      chartField: ['Month','Amount'],
+      datas: [
+        { month: '', amount: 0 }
+      ]
+    }
 }
 ```
 
@@ -400,7 +401,12 @@ import BranchModel from "../models/branchModel";
 
 const initialState = {
     branches: [],
-    branchDataInChart: [['Month', 'Amount'], ['', 0]],
+    branchDataInChart: {
+      chartField: ['Month','Amount'],
+      datas: [
+        { month: '', amount: 0 }
+      ]
+    },
     app: {
         
     }
@@ -418,24 +424,10 @@ export default (state = initialState, { type, payload }) => {
             })
 
             if (selectingBranch) {
-                let finalChartData = [];
-
-                finalChartData.push(selectingBranch.chartData.chartField);
-
-                let chartDatas = selectingBranch.chartData.datas;
-
-                if (chartDatas && chartDatas.length > 0) {
-                    chartDatas.forEach(data => {
-                        finalChartData.push([data.month, data.amount]);
-                    })
-                } else {
-                    finalChartData.push(['', 0]);
-                }
-
 
                 return {
                     ...state,
-                    branchDataInChart: finalChartData
+                    branchDataInChart: { ...selectingBranch.chartData }
                 }
 
             } else {

@@ -155,7 +155,7 @@ case Action.SHOW_BRANCH_DATA: {
 }
 ```
 
-### ไฟล์เต็ม dashboard.reducer.js
+### ไฟล์เต็ม src/redux/reducer.js
 
 ```js
 import branchModel from "../models/branchModel"
@@ -191,7 +191,12 @@ import BranchModel from "../models/branchModel";
 
 const initialState = {
     branches: BranchModel.branches,
-    branchDataInChart: [['Month', 'Amount'], ['', 0]]
+    branchDataInChart: {
+      chartField: ['Month','Amount'],
+      datas: [
+        { month: '', amount: 0 }
+      ]
+    }
 }
 //...
 ```
@@ -210,6 +215,25 @@ import { useSelector } from 'react-redux'
 let branchDataChart = useSelector(state => state.branchDataInChart)
 ```
 
+และเขียนคำสั่งในการแปลงข้อมูลแบบ JavaScript object ที่ได้จาก redux state ให้อยู่ในรูปแบบที่ Google Chart ใช้งานได้ 
+
+```js
+let finalChartData = [];
+
+finalChartData.push(branchDataChart.chartField);
+
+let chartDatas = branchDataChart.datas;
+
+if (chartDatas && chartDatas.length > 0) {
+    chartDatas.forEach(data => {
+        finalChartData.push([data.month, data.amount]);
+    })
+} else {
+    finalChartData.push(['', 0]);
+}
+
+```
+
 และเราจะนำตัวแปรนี้มาแสดงใน Chart component 
 
 ### ไฟล์เต็ม StatChart.js
@@ -224,6 +248,20 @@ export default function StatChart() {
 
     let branchDataChart = useSelector(state => state.branchDataInChart)
 
+    let finalChartData = [];
+
+    finalChartData.push(branchDataChart.chartField);
+
+    let chartDatas = branchDataChart.datas;
+
+    if (chartDatas && chartDatas.length > 0) {
+        chartDatas.forEach(data => {
+            finalChartData.push([data.month, data.amount]);
+        })
+    } else {
+        finalChartData.push(['', 0]);
+    }
+
     return (
         <div>
             <Card title="Chart" style={{
@@ -236,7 +274,7 @@ export default function StatChart() {
                         loader={<div>Loading Chart</div>}
 
                         // แทนที่ข้อมูลที่ได้จาก Redux store 
-                        data={branchDataChart}
+                        data={finalChartData}
                         
                         rootProps={{ 'data-testid': '1' }}
                     />
@@ -263,24 +301,10 @@ case Action.SHOW_BRANCH_DATA: {
     })
 
     if (selectingBranch) {
-        let finalChartData = [];
-
-        finalChartData.push(selectingBranch.chartData.chartField);
-
-        let chartDatas = selectingBranch.chartData.datas;
-
-        if (chartDatas && chartDatas.length > 0) {
-            chartDatas.forEach(data => {
-                finalChartData.push([data.month, data.amount]);
-            })
-        } else {
-            finalChartData.push(['', 0]);
-        }
-
 
         return {
             ...state,
-            branchDataInChart: finalChartData
+            branchDataInChart: { ...selectingBranch.chartData }
         }
 
     } else {
@@ -288,6 +312,7 @@ case Action.SHOW_BRANCH_DATA: {
     }
 }
 ```
+
 
 ### ไฟล์เต็ม reducer.js
 
@@ -298,7 +323,12 @@ import Action from './action'
 
 const initialState = {
     branches: branchModel.branches,
-    branchDataInChart: [['Month', 'Amount'], ['', 0]]
+    branchDataInChart: {
+      chartField: ['Month','Amount'],
+      datas: [
+        { month: '', amount: 0 }
+      ]
+    }
 }
 
 export default (state = initialState, { type, payload }) => {
@@ -313,24 +343,10 @@ export default (state = initialState, { type, payload }) => {
             })
 
             if (selectingBranch) {
-                let finalChartData = [];
-
-                finalChartData.push(selectingBranch.chartData.chartField);
-
-                let chartDatas = selectingBranch.chartData.datas;
-
-                if (chartDatas && chartDatas.length > 0) {
-                    chartDatas.forEach(data => {
-                        finalChartData.push([data.month, data.amount]);
-                    })
-                } else {
-                    finalChartData.push(['', 0]);
-                }
-
-
+                
                 return {
                     ...state,
-                    branchDataInChart: finalChartData
+                    branchDataInChart: { ...selectingBranch.chartData }
                 }
 
             } else {

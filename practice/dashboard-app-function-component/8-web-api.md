@@ -136,19 +136,7 @@ function App() {
   useEffect(() => {
 
     const requestInitData = async (dispatch) => {
-      try {
-        const success = await fetch(
-          'https://www.nextflow.in.th/api/branch-info/branch.json',
-          // กำหนด request เป็น no-cors เพื่อลดปัญหาเรื่อง cors ระหว่างการพัฒนา
-          {
-            mode: 'no-cors'
-          }
-        )
-        console.log(success)
-        console.log('load data success')
-      } catch (error) {
-        console.log(`Load data error: ${error}`)
-      }
+      
     }
 
     requestInitData()

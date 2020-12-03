@@ -132,6 +132,7 @@ import { Card } from 'antd'
 import Chart from "react-google-charts";
 
 export default function StatChart() {
+
     return (
         <div>
             <Card title="Chart" style={{
