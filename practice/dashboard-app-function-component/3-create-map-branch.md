@@ -70,15 +70,8 @@ function App() {
 export default App;
 ```
 
-## 3. ติดตั้ง `google-map-react` 
 
-รันคำสั่งติดตั้ง module 
-
-```bash
-npm i google-map-react
-```
-
-## 4. ใช้งาน GoogleMapReact component
+## 3. ใช้งาน GoogleMapReact component
 
 > สามารถไปเปิดใช้งาน Google Map API Key ได้ที่ [Google Map Platform](https://console.cloud.google.com/google/maps-apis/overview)
 
@@ -153,7 +146,7 @@ export default function MapBranch({
 
 ```
 
-## 5. จัด Layout แผนที่ กับ Chart ใน App.js
+## 4. จัด Layout แผนที่ กับ Chart ใน App.js
 
 เปิดไฟล์ `src/App.js`
 
@@ -231,7 +224,7 @@ export default App;
 
 ```
 
-## 6. ปักหมุดเมื่อแผนที่โหลดเสร็จ
+## 5. ปักหมุดเมื่อแผนที่โหลดเสร็จ
 
 เปิดไฟล์ `src/components/MapBranch.js`
 
