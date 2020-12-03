@@ -239,7 +239,7 @@ export default App;
     defaultZoom={zoom}
 
     yesIWantToUseGoogleMapApiInternals
-    onGoogleApiLoaded={({ map, maps }) => this.handleApiLoaded(map, maps)}
+    onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
     >
     
     </GoogleMapReact>
@@ -250,7 +250,7 @@ export default App;
 เราสามารถใช้คำสั่งใน [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) ได้ตามปกติ เช่นการปักหมุด
 
 ```js
-handleApiLoaded(map, maps) {
+const handleApiLoaded = (map, maps) => {
     let marker = new maps.Marker({
         position: this.props.center,
         map,
