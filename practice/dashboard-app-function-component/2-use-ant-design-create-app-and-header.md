@@ -74,7 +74,11 @@ function App() {
             background: '#fff',
             padding: 24,
             minHeight: 280
-          }}>Content</div>
+          }}>
+          
+          <HeaderBar/>
+          
+          </div>
         </Content>
         <Footer style={{
           textAlign: 'center'
@@ -110,7 +114,11 @@ function App() {
             background: '#fff',
             padding: 24,
             minHeight: 280
-          }}>Content</div>
+          }}>
+          
+          <HeaderBar/>
+          
+          </div>
         </Content>
         <Footer style={{
           textAlign: 'center'
