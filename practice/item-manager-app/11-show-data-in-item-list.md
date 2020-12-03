@@ -13,7 +13,7 @@ export default function ItemList() {
 
     return (
         <List
-            header={<div>Store</div>}
+            header={<div>Notes</div>}
             bordered
 
             {/* กำหนด items เป็น dataSource ของ List */}
@@ -21,12 +21,7 @@ export default function ItemList() {
             {/* return JSX ของ Item List โดยใช้ Component ของ Ant Design */}
             renderItem={item => (
                 <List.Item>
-                    <div>{item.name}</div>
-                    <div>
-                        <Typography.Text mark>
-                            {item.status}
-                        </Typography.Text>
-                    </div>
+                    <div>{item.message}</div>
                 </List.Item>
             )}
         />
@@ -49,17 +44,12 @@ export default function ItemList() {
 
     return (
         <List
-            header={<div>Store</div>}
+            header={<div>Notes</div>}
             bordered
             dataSource={items}
             renderItem={item => (
                 <List.Item>
-                    <div>{item.name}</div>
-                    <div>
-                        <Typography.Text mark>
-                            {item.status}
-                        </Typography.Text>
-                    </div>
+                    <div>{item.message}</div>
                 </List.Item>
             )}
         />

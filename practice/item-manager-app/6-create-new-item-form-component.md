@@ -35,14 +35,8 @@ export default function NewItemForm() {
                 width: 350
             }}>
             <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
-                <Form.Item name="name" label="Name" rules={[{ required: true }]}>
+                <Form.Item name="message" label="Message" rules={[{ required: true }]}>
                     <Input />
-                </Form.Item>
-                <Form.Item name="status" label="Status" rules={[{ required: true }]}>
-                    <Select placeholder="Status">
-                        <Option value="instock">In Stock</Option>
-                        <Option value="preorder">Pre-order</Option>
-                    </Select>
                 </Form.Item>
                 
                 <Form.Item {...tailLayout}>

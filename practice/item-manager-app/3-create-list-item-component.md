@@ -26,7 +26,7 @@ export default function ItemList() {
     // นำข้อมูลมาใส่ในส่วนของ dataSource
     return (
         <List
-            header={<div>Store</div>}
+            header={<div>Notes</div>}
             bordered
             dataSource={data}
             renderItem={item => (
@@ -132,7 +132,7 @@ export default function ItemList() {
 
     return (
         <List
-            header={<div>Header</div>}
+            header={<div>Notes</div>}
             bordered
             dataSource={data}
             renderItem={item => (

@@ -18,15 +18,16 @@ npx create-react-app item-manager
 5.  redux-logger
 6.  react-router-dom 
 7.  connected-react-router
+8.  axios
 
 ```bash
 cd branch-dashboard
-npm i redux react-redux antd css-animation redux-logger react-router-dom connected-react-router react-router-modal
+npm i redux react-redux antd css-animation redux-logger react-router-dom connected-react-router react-router-modal axios
 ```
 
 ### ใช้ yarn ไหม?
 
 ```bash
 cd branch-dashboard
-yarn add redux react-redux antd css-animation redux-logger react-router-dom connected-react-router react-router-modal
+yarn add redux react-redux antd css-animation redux-logger react-router-dom connected-react-router react-router-modal axios
 ```
