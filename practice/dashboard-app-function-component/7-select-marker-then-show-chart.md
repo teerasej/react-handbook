@@ -8,17 +8,16 @@
 2. เพิ่ม function `markerClick` เข้าไปเป็น EventListener ของ Marker ทุกตัว
 
 ```js
-markerClick = (marker) => {
+const markerClick = (marker) => {
   let branchId = marker.get('branchId');
   let branchTitle = marker.get('title');
 
   console.log(`Selected branch: ${branchId} ${branchTitle}`);
 }
 
-handleApiLoaded(map, maps) {
+const handleApiLoaded = (map, maps) => {
 
   //..
-  let branches = this.props.branches;
 
   branches.forEach(branch => {
     let marker = new maps.Marker({
@@ -129,7 +128,7 @@ import Action from "../redux/action";
 
 //..
 
-markerClick = (marker) => {
+const markerClick = (marker) => {
   let branchId = marker.get('branchId');
   let branchTitle = marker.get('title');
 
