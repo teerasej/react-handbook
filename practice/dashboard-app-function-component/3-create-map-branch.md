@@ -70,15 +70,8 @@ function App() {
 export default App;
 ```
 
-## 3. ติดตั้ง `google-map-react` 
 
-รันคำสั่งติดตั้ง module 
-
-```bash
-npm i google-map-react
-```
-
-## 4. ใช้งาน GoogleMapReact component
+## 3. ใช้งาน GoogleMapReact component
 
 > สามารถไปเปิดใช้งาน Google Map API Key ได้ที่ [Google Map Platform](https://console.cloud.google.com/google/maps-apis/overview)
 
@@ -153,7 +146,7 @@ export default function MapBranch({
 
 ```
 
-## 5. จัด Layout แผนที่ กับ Chart ใน App.js
+## 4. จัด Layout แผนที่ กับ Chart ใน App.js
 
 เปิดไฟล์ `src/App.js`
 
@@ -231,7 +224,7 @@ export default App;
 
 ```
 
-## 6. ปักหมุดเมื่อแผนที่โหลดเสร็จ
+## 5. ปักหมุดเมื่อแผนที่โหลดเสร็จ
 
 เปิดไฟล์ `src/components/MapBranch.js`
 
@@ -246,7 +239,7 @@ export default App;
     defaultZoom={zoom}
 
     yesIWantToUseGoogleMapApiInternals
-    onGoogleApiLoaded={({ map, maps }) => this.handleApiLoaded(map, maps)}
+    onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
     >
     
     </GoogleMapReact>
@@ -257,7 +250,7 @@ export default App;
 เราสามารถใช้คำสั่งใน [Google Maps JavaScript API](https://developers.google.com/maps/documentation/javascript/tutorial) ได้ตามปกติ เช่นการปักหมุด
 
 ```js
-handleApiLoaded(map, maps) {
+const handleApiLoaded = (map, maps) => {
     let marker = new maps.Marker({
         position: this.props.center,
         map,
