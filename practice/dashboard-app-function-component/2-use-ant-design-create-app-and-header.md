@@ -60,8 +60,8 @@ const {Header, Content, Footer} = Layout;
 
 
 ```js
-class App extends React.Component {
-  render() {
+function App() {
+ 
     return (
     <div>
       <Layout className="layout">
@@ -82,7 +82,7 @@ class App extends React.Component {
       </Layout>,
     </div>
     );
-  }
+  
 }
 ```
 
@@ -96,8 +96,8 @@ import HeaderBar from './components/HeaderBar';
 import {Layout, Menu} from 'antd';
 const {Header, Content, Footer} = Layout;
 
-class App extends React.Component {
-  render() {
+function App() {
+
     return (
     <div>
       <Layout className="layout">
@@ -118,7 +118,7 @@ class App extends React.Component {
       </Layout>,
     </div>
     );
-  }
+  
 }
 
 export default App;
