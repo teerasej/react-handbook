@@ -1,5 +1,5 @@
 
-# สร้างส่วนแสดงรายการสินค้า List Item Component
+# สร้างส่วนแสดงรายการ ItemList Component
 
 ## 1. สร้าง ItemList component
 
