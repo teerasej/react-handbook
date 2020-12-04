@@ -12,3 +12,7 @@
 9. [ประกาศค่าเริ่มต้นของ initial state และอัพเดตตอนได้รับ action](9-declare-and-update-value.md)
 10. [ตรวจสอบข้อมูล และปิด modal](10-validate-and-close-modal.md)
 11. [แสดงและอัพเดตข้อมูลใน ItemList](11-show-data-in-item-list.md)
+
+## Part: Web API
+
+- [Web API](part-web-api/readme.md)
