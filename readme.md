@@ -54,6 +54,7 @@ npx create-react-app my-app
 # React + Redux 
 
 - [Branch Dashboard (Redux focused)](practice/dashboard-app-redux-focus/readme.md)
+- [Member Application](practice/member-app/readme.md)
 
 # Publish React
 
