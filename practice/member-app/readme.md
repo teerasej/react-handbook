@@ -36,3 +36,9 @@
 17. [สร้าง store ใน redux](17-create-store.md)
 18. [ตั้งค่า Store ให้เชื่อมกับ Component ในระบบแอพ](18-config-redux-store-to-app.md)
 19. [สร้างกลไกการ authen และแชร์ token ใน component ต่างๆ ผ่าน redux](19-implement-authen-in-login-page.md)
+
+## เชื่อมต่อกับ Web API
+
+20. [ลงทะเบียนกับ Web API](20-signup-with-web-api.md)
+21. [Login เข้าใช้งานผ่าน Web API](21-login-authentication-web-api.md)
+22. [เรียกข้อมูลผู้ใช้](22-get-user-profile.md)
