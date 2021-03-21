@@ -37,7 +37,7 @@ cd member-app
 yarn add react react-dom @material-ui/core formik redux react-redux redux-logger yup react-router-dom axios use-async-effect
 ```
 
-3. ติดตั้ง CORS Extension 
+## 3. ติดตั้ง CORS Extension 
 
 เนื่องจากแอพที่เราทำรันอยู่บน Localhost การติดต่อกับ Web API ที่อยู่บน Server อื่นอาจจะเกิดปัญหา CORS บน Web Browser ได้ 
 
