@@ -35,6 +35,7 @@ npx create-react-app my-app
 # Redux 
 
 - [Counter](/practice/counter/readme.md)
+- [OpenAI Client](/practice/openai/readme.md)
 
 
 # React in Action 
