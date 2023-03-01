@@ -1,6 +1,8 @@
 
 # สร้าง OpenAI client 
 
+## Part 1
+
 1. โคลนโปรเจคด้วยคำสั่งด้านล่าง
 
 ```bash
@@ -14,3 +16,8 @@ npm install
 5. [สร้าง Redux store](5-store.md)
 6. [สร้างและเรียกใช้ Reducer](6-reducer.md)
 7. [สร้างและเรียกใช้ Action](7-action.md)
+
+## Part 2
+
+8. [ใช้งาน react-hook-form](8-form.md)
+9. [สร้าง async action](9-openai.md)
