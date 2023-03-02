@@ -36,20 +36,15 @@ export const fetchOpenAI = createAsyncThunk(
 
     // สร้าง JSON object ในการส่งไปที่ OpenAI API
     const jsonPrompt = JSON.stringify({
-      "model": "text-davinci-003",
-      "prompt": `${prompt}\n\n>`,
-      "temperature": 0.7,
-      "max_tokens": 256,
-      "top_p": 1,
-      "frequency_penalty": 0,
-      "presence_penalty": 0
+      "model": "gpt-3.5-turbo",
+      "messages": [{"role": "user", "content": prompt}]
     });
 
     console.log(jsonPrompt)
 
     // ใช้ axios ส่ง request โดยการกำหนด key และ json 
     const response = await axios.post(
-      'https://api.openai.com/v1/completions',
+      'https://api.openai.com/v1/chat/completions',
       jsonPrompt,
       {
         headers: {
@@ -58,10 +53,9 @@ export const fetchOpenAI = createAsyncThunk(
         }
       });
 
-    console.log(response)
-
     // ดึงเฉพาะส่วนข้อความที่ API ตอบกลับมา
-    return response.data.choices[0].text;
+    return response.data.choices[0].message.content;
+  
   }
 );
 
