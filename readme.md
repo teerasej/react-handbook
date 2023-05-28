@@ -7,18 +7,14 @@
 
 ดูส่วนของ [Node Handbook ได้ที่นี่](https://github.com/teerasej/node-handbook/)
 
-## Download & Setup file
+## Setup your machine
 
-- [Slide](https://www.dropbox.com/s/f5pjh83hdu97wai/ReactJS.pdf?dl=0)
-- [NodeJS Runtime](https://nodejs.org/en/)
-- [Visual Studio Code](https://code.visualstudio.com/)
-- [Nextflow React Extension Pack](https://marketplace.visualstudio.com/items?itemName=teerasej.nextflow-react-native-pack)
+- [Setup](setup.md)
+
 
 ## React Fundamental 
 
-> [ดาวน์โหลดไฟล์ workshop](https://www.dropbox.com/s/3dsxeez9judzk7j/fundamental2020.zip?dl=0)
-
-หรือใช้คำสั่ง สร้าง react project
+ใช้คำสั่ง สร้าง react project
 
 ```bash
 npx create-react-app my-app
