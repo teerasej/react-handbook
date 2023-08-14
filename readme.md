@@ -14,12 +14,8 @@
 
 ## React Fundamental 
 
-ใช้คำสั่ง สร้าง react project
 
-```bash
-npx create-react-app my-app
-```
-
+0. [สร้างโปรเจค React App](/create-react-app.md)
 1. [Using React ในไฟล์ HTML ธรรมดา](/using-react.md)
 2. [JSX](/jsx.md)
 3. [Function Component](/function-component.md)
