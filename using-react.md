@@ -30,4 +30,6 @@
 
 หรือจะกดดูใน [CodePen ของพล](https://codepen.io/teerasej/pen/ZEmgoEx) ก็ได้ครับ
 
+สำหรับคนที่ไม่สามารถใช้ Project ในเครื่องได้ [ให้ลองใช้ CodePen ตัวนี้ได้](https://codepen.io/teerasej/pen/qBQeLRG)
+
 แต่แบบที่ใช้กันจริงๆ [จะใช้ JSX มากกว่า](/jsx.md)
