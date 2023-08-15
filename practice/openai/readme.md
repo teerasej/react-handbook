@@ -29,4 +29,4 @@ npm install
 ```
 
 8. [ใช้งาน react-hook-form](8-form.md)
-9. [สร้าง async action](9-openai.md)
+9. [เรียกใช้ OpenAI API](9-openai.md)
