@@ -1,6 +1,8 @@
 
 # สร้าง OpenAI client 
 
+ในโปรเจคนี้เราใช้ component จาก [react-bootstrap](https://react-bootstrap.netlify.app/) นะ
+
 ## Part 1
 
 1. โคลนโปรเจคด้วยคำสั่งด้านล่าง
