@@ -3,6 +3,11 @@
 
 สามารถที่จะสร้างโปรเจคใหม่ตามคำสั่งด้านล่าง หรือว่าจะ[โคลน git repo จากที่นี่](https://github.com/teerasej/nextflow-counter-redux-app/tree/start)มาก็ได้นะ (ให้แน่ใจว่าเลือก branch 'start' นะโอเค้?) 
 
+หรือจะใช้ git command ด้านล่างในการ clone โปรเจคก็ได้
+```bash
+git clone -b start https://github.com/teerasej/nextflow-counter-redux-app.git
+```
+
 ## 1. สร้างโปรเจค React
 
 ```bash
