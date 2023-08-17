@@ -19,7 +19,18 @@ const messageSlice = createSlice({
   reducers: {
     // เพิ่ม function ที่จะรับ state และ action เพื่อเอามาใช้งาน
     messageAdded(state, action) {
-      state.push({...action.payload, id: Math.floor(Math.random() * 1000)})
+
+      // แสดงข้อมูลของ action object
+      console.log(action.type)
+      console.log(action.payload)
+
+      // นำข้อมูลจาก action.payload มาเพิ่มเป็น chat message item ใหม่ใน state 
+      state.push({
+        id: Math.floor(Math.random() * 1000),
+        sender: action.payload.sender,
+        message: action.payload.message
+      })
+
     },
   },
 });
@@ -28,6 +39,16 @@ const messageSlice = createSlice({
 export const { messageAdded } = messageSlice.actions
 
 export default messageSlice.reducer
+```
+เราสามารถใช้เทคนิค object spreadding ในการเขียน JavaScript แบบด้านล่างได้เช่นกันนะ 
+
+```
+messageAdded(state, action) {
+      state.push({
+          ...action.payload,
+          id: Math.floor(Math.random() * 1000)
+      })
+},
 ```
 
 ## 2. เรียกใช้ และ Dispatch Action เข้า Reducer
