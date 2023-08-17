@@ -30,7 +30,7 @@ export const { messageAdded } = messageSlice.actions
 export default messageSlice.reducer
 ```
 
-## 2. 
+## 2. เรียกใช้ และ Dispatch Action เข้า Reducer
 
 ```js
 // src/components/promptinput/PromptInput.js
