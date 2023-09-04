@@ -8,10 +8,12 @@
 
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = [
-  { id: 1, sender: 'User', text: 'Hello' },
-  { id: 2, sender: 'GPT', text: 'Hi!' }
-]
+const initialState = {
+  chatHistory: [
+    { id: 1, sender: 'User', text: 'Hello' },
+    { id: 2, sender: 'GPT', text: 'Hi!' }
+  ]
+}
 
 const chatSlice = createSlice({
   name: 'chatSlice',
@@ -55,15 +57,25 @@ import { addMessageToHistory } from '../../redux/chatSlice';
 
 function PromptInputComponent() {
 
+    const [message, setMessage] = useState("")
+
+    const handleChange = (e) => {
+        e.preventDefault(); 
+        setMessage(e.target.value); 
+    };
+
     // สร้าง function dispatch
     const dispatch = useDispatch();
 
     // onSubmit ทำงานตอนกดปุ่ม send
-    // - เอาข้อความที่ user พิมพ์ลงในช่อง มาสร้างเป็น action object ผ่านการใช้ addMessageToHistory ที่สร้างไว้ใน slice
-    // - dispatch ตัว action object เข้าไปหา redux
+    // 1. เอาข้อความที่ user พิมพ์ลงในช่อง มาสร้างเป็น action object ผ่านการใช้ addMessageToHistory ที่สร้างไว้ใน slice
+    // 2. dispatch ตัว action object เข้าไปหา redux
+    // 3. เคบ
     const onSubmit = () => {
         const actionObject = addMessageToHistory(message)
         dispatch(actionObject)
+
+        setMessage("");
     };
 
 
