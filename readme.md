@@ -14,27 +14,29 @@
 
 ## React Fundamental 
 
+- [แบบทั่วไป](/contents/react-fundamental/README.md)
+- [แบบ Classic (ติดตั้ง และเรียกใช้ React ใน HTML ด้วยตัวเอง)](/contents/react-fundamental-classic/README.md)
 
-0. [สร้างโปรเจค React App](contents//create-react-app.md)
-1. [Using React ในไฟล์ HTML ธรรมดา](contents//using-react.md)
-2. [JSX](contents//jsx.md)
-3. [Function Component](contents//function-component.md)
-4. [Class Component](contents//class-component.md)
-5. [Props](contents//props.md)
-6. [Event](contents//event.md)
-7. [State](contents//state.md)
+0. [สร้างโปรเจค React App](contents/create-react-app.md)
+1. [Using React ในไฟล์ HTML ธรรมดา](contents/using-react.md)
+2. [JSX](contents/jsx.md)
+3. สร้าง และใช้งาน Component [Function Component](contents/function-component.md) | [Class Component](contents/class-component.md)
+4. 
+5. [Props](contents/props.md)
+6. [Event](contents/event.md)
+7. [State](contents/state.md)
 
 # Redux 
 
-- [Counter](contents//practice/counter/readme.md)
-- [OpenAI Client](contents//practice/openai/readme.md)
+- [Counter](contents/practice/counter/readme.md)
+- [OpenAI Client](contents/practice/openai/readme.md)
 
 
 # React in Action 
 
 ## Function Component 
 
-- [Item Manager App](contents//practice/item-manager-app/readme.md)
+- [Item Manager App](contents/practice/item-manager-app/readme.md)
 - [Dashboard Web App](contents/practice/dashboard-app-function-component/readme.md) (Function component)
 
 ## Class Component
