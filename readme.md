@@ -17,14 +17,6 @@
 - [แบบทั่วไป](/contents/react-fundamental/README.md)
 - [แบบ Classic (ติดตั้ง และเรียกใช้ React ใน HTML ด้วยตัวเอง)](/contents/react-fundamental-classic/README.md)
 
-0. [สร้างโปรเจค React App](contents/create-react-app.md)
-1. [Using React ในไฟล์ HTML ธรรมดา](contents/using-react.md)
-2. [JSX](contents/jsx.md)
-3. สร้าง และใช้งาน Component: [Function Component](contents/function-component.md) | [Class Component](contents/class-component.md)
-4. [Props](contents/props.md)
-5. [Event](contents/event.md)
-6. [State](contents/state.md)
-
 # Redux 
 
 - [Counter](contents/practice/counter/readme.md)
