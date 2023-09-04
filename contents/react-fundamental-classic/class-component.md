@@ -1,7 +1,7 @@
 
 # Class Component 
 
-เป็นรูปแบบการเขียนเชิง Object-Oriented Programing ซึ่งสำหรับหลายๆ คนอาจจะชอบมากกว่าแบบ [Function Component](/function-component.md) ทั่วไป
+เป็นรูปแบบการเขียนเชิง Object-Oriented Programing ซึ่งสำหรับหลายๆ คนอาจจะชอบแบบ [Function Component](/function-component.md) ก็สามารถเลือกใช้ได้ แต่ปัจจุบันก็จะเป็นแบบ Function หมดแล้ว
 
 ## โครงสร้างพื้นฐานของ Class Component
 
