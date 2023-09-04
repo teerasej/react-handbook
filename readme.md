@@ -9,50 +9,50 @@
 
 ## Setup your machine
 
-- [Setup](setup.md)
+- [Setup](contents/setup.md)
 
 
 ## React Fundamental 
 
 
-0. [สร้างโปรเจค React App](/create-react-app.md)
-1. [Using React ในไฟล์ HTML ธรรมดา](/using-react.md)
-2. [JSX](/jsx.md)
-3. [Function Component](/function-component.md)
-4. [Class Component](/class-component.md)
-5. [Props](/props.md)
-6. [Event](/event.md)
-7. [State](/state.md)
+0. [สร้างโปรเจค React App](contents//create-react-app.md)
+1. [Using React ในไฟล์ HTML ธรรมดา](contents//using-react.md)
+2. [JSX](contents//jsx.md)
+3. [Function Component](contents//function-component.md)
+4. [Class Component](contents//class-component.md)
+5. [Props](contents//props.md)
+6. [Event](contents//event.md)
+7. [State](contents//state.md)
 
 # Redux 
 
-- [Counter](/practice/counter/readme.md)
-- [OpenAI Client](/practice/openai/readme.md)
+- [Counter](contents//practice/counter/readme.md)
+- [OpenAI Client](contents//practice/openai/readme.md)
 
 
 # React in Action 
 
 ## Function Component 
 
-- [Item Manager App](/practice/item-manager-app/readme.md)
-- [Dashboard Web App](practice/dashboard-app-function-component/readme.md) (Function component)
+- [Item Manager App](contents//practice/item-manager-app/readme.md)
+- [Dashboard Web App](contents/practice/dashboard-app-function-component/readme.md) (Function component)
 
 ## Class Component
 
-- [Note App](/practice/note-app-saga/readme.md)
-- [Location Selector](/practice/location-selector/readme.md)
-- [Dashboard Web App](practice/dashboard-app/readme.md)
-- [COVID-19 Report](practice/covid-today/readme.md)
+- [Note App](contents/practice/note-app-saga/readme.md)
+- [Location Selector](contents/practice/location-selector/readme.md)
+- [Dashboard Web App](contents/practice/dashboard-app/readme.md)
+- [COVID-19 Report](contents/practice/covid-today/readme.md)
 
 # React + Redux 
 
-- [Branch Dashboard (Redux focused)](practice/dashboard-app-redux-focus/readme.md)
-- [Member Application](practice/member-app/readme.md)
+- [Branch Dashboard (Redux focused)](contents/practice/dashboard-app-redux-focus/readme.md)
+- [Member Application](contents/practice/member-app/readme.md)
 
 # Publish React
 
-- [การ Publish โปรเจคไปใช้งาน](publish.md) 
+- [การ Publish โปรเจคไปใช้งาน](contents/publish.md) 
 
 # Debugging React with VSCode
 
-- [Debugging React with VSCode](/debugging.md)
+- [Debugging React with VSCode](contents/debugging.md)
