@@ -3,10 +3,10 @@
 
 ## 1. สร้างไฟล์ CSS 
 
-สร้างไฟล​์ `src/components/chatroom/ChatMessage.css`
+สร้างไฟล​์ `src/components/chatHistory/ChatMessage.css`
 
 ```css
-/* src/components/chatroom/ChatMessage.css */
+/* src/components/chatHistory/ChatMessage.css */
 .msg-bubble {
     
     margin-bottom: 5px;
@@ -25,16 +25,21 @@
 
 ## 2. สร้างไฟล์ JavaScript
 
-สร้าง `src/components/chatroom/ChatMessage.js`
+สร้าง `src/components/chatHistory/ChatMessageComponent.js`
 
 ```js
+
+//src/components/chatHistory/ChatMessageComponent.js
 
 import './ChatMessage.css';
 import { Col, Container, Row } from 'react-bootstrap'
 
-function ChatMessage(props) {
+function ChatMessageComponent(props) {
 
-  let { sender, message } = props
+  let { sender, text } = props
+  // สามารถใช้วิธีด้านล่างนี้ได้เหมือนกัน
+  // let sender = props.sender
+  // let text = props.text
 
   return (
     <Container>
@@ -43,50 +48,55 @@ function ChatMessage(props) {
           {sender}
         </Col>
         <Col md="auto" className='message'>
-          {message}
+          {text}
         </Col>
       </Row>
     </Container>
   )
 }
 
-export default ChatMessage
+export default ChatMessageComponent
 ```
 
 ## 3. เพิ่มมาใช้งานใน Chatroom.js
 
-เพิ่ม component ใช้งานใน `src/components/chatroom/Chatroom.js` 
+เพิ่ม component ใช้งานใน `src/components/chatHistory/ChatHistoryComponent.js` 
 
-```js
+```jsx
+// src/components/chatHistory/ChatHistoryComponent.js
 
 import React from 'react'
 import { Container, Row } from 'react-bootstrap';
-import ChatMessage from './ChatMessage'
-function Chatroom() {
+import ChatMessageComponent from './ChatMessageComponent'
 
-  // สร้าง Array ตัวแทนของ message 
-  const publishedMessage = [
-    { id: 1, sender: 'User' , message:'Hello'},
-    { id: 2, sender: 'GPT' , message:'Hi'}
-  ];
+function ChatHistoryComponent() {
 
-  // สร่้าง Array ของ JSX 
-  const renderedMessage = publishedMessage.map(message => (
-    <ChatMessage key={message.id} sender={message.sender} message={message.message}/>
-  ))
+    // สร้าง Array เป็นตัวแทนของ message ที่จะแสดงใน chat history 
+    const chatHistory = [
+        { id: 1, sender: 'User', message: 'Hello' },
+        { id: 2, sender: 'GPT', message: 'Hi' }
+    ];
 
-  return (
-    <Row>
-        <Container>
-          <div className="chatroom">
-            {
-              renderedMessage
-            }
-          </div>
-        </Container>
-    </Row>
-  )
+    // สร่้าง Array ของ JSX 
+    const renderedMessage = chatHistory.map(chatMessage => (
+        <ChatMessageComponent
+            key={chatMessage.id}
+            sender={chatMessage.sender}
+            message={chatMessage.text} />
+    ))
+
+    return (
+        <Row>
+            <Container>
+                <div className="chatroom">
+                    {
+                        renderedMessage
+                    }
+                </div>
+            </Container>
+        </Row>
+    )
 }
 
-export default Chatroom
+export default ChatHistoryComponent
 ```

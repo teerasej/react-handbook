@@ -1,24 +1,30 @@
 
 # 5. สร้าง Redux Store
 
-## 1. สร้างไฟล์ store
+- [Redux for React](https://redux.js.org/basics/usage-with-react)
 
-สร้างไฟล์ `src/redux/store.js`
+## 1. สร้าง Redux Store 
 
-```js
+ให้สร้างไฟล์ `src/redux/store.js`
+
+```jsx
 // src/redux/store.js
-
 import { configureStore } from '@reduxjs/toolkit'
 
+// ใช้ function configureStore สร้าง store เปล่าๆ ไม่มี reducer 
 export default configureStore({
   reducer: {}
 })
+
 ```
 
-## 2. Setup Redux store กับ component
+## 2. นำ Redux Store มาใช้กับ App ผ่าน Provider component
+
+เราจะทำการ import ทั้ง store ที่เตรียมไว้ และ **Provider** มาใช้กับ **App** ของเรา
 
 ```js
 // src/index.js
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
@@ -32,7 +38,7 @@ import store from "./redux/store";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* กำหนด Provider และ store */}
+    {/* ครอบ component ทั้งหมดด้วย Provider ที่มีการใส่ store ลงไปใช้งาน */}
     <Provider store={store}>
         <App />
     </Provider>

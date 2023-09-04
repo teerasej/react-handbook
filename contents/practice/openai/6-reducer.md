@@ -1,82 +1,55 @@
 
 # 6. สร้าง Reducer Slice
 
-## 1. สร้างไฟล์ reducer
+## 6.1 สร้าง Reducer Slice สำหรับเก็บ chat history และจัดการเกี่ยวกับ action ที่เกิดกับ chat feature ของแอพ
 
-สร้างไฟล์ `src/redux/messageSlice.js`
+สร้างไฟล์ `src/redux/chatSlice.js`
 
 ```js
-// src/redux/messageSlice.js
+// redux/chatSlice.js
+// ใช้ snippet rxslice
 
 import { createSlice } from '@reduxjs/toolkit'
 
-const initialState = [
-  { id:1, sender: 'User', message: 'Hello' },
-  { id:2, sender: 'GPT', message: 'Hi!' }
-]
+// กำหนดค่าเริ่มต้นของข้อมูลที่ชื่อ chatHistory เป็นค่า undefined
+const initialState = {
+    // สร้าง item ที่เป็นตัวแทนของข้อความ
+    chatHistory: [
+      { sender: 'Me', text:'Oh yeah!'}
+    ]
+}
 
-const messageSlice = createSlice({
-  name: 'messages',
+// สร้าง slice จาก function 
+const chatSlice = createSlice({
+  // กำหนดชื่อของ slice
+  name: 'chatSlice',
+  // กำหนด state เริ่มต้นของ slice 
   initialState,
-  reducers: {
-    
-  },
+
+  // กำหนด reducer ที่ตอนนี้ยังไม่มีการกำหนด action อะไร
+  reducers: {}
 });
 
-export const {  } = messageSlice.actions
+// กำหนด action สำหรับส่งไปเรียกใช้ที่ส่วนอื่นของแอพ
+export const {} = chatSlice.actions
 
-export default messageSlice.reducer
+export default chatSlice.reducer
 ```
 
-## 2. setup reducer เข้าไปใน store 
+## 6.2 เพิ่ม slice เข้าเป็น Reducer ของ Store
 
-```js
+```jsx
 // src/redux/store.js
 
 import { configureStore } from '@reduxjs/toolkit'
-import messageSlice from './messageSlice'
+// import slice ที่ต้องการ
+import chatSlice from './chatSlice.js'
+
 
 export default configureStore({
   reducer: {
-    // ตั้งชื่อ reducer สำหรับเรียกใช้ใน component
-    messages: messageSlice
+    // กำหนด slice ให้เป็น reducer ของ store โดยตั้งชื่อ slice นี้ ว่า chatroom 
+    chatroom: chatSlice
   }
 })
-```
-
-## 3. เรียกใช้งาน redux store ผ่าน useSelector()
-
-```js
-// src/components/chatroom/Chatroom.js
-
-import React from 'react'
-import { Container, Row } from 'react-bootstrap';
-import ChatMessage from './ChatMessage'
-
-// เรียกใช้ useSelector()
-import { useSelector } from 'react-redux';
-
-function Chatroom() {
-
-  // เรียกใช้งาน Redux state เพื่อดึงค่าจาก reducer ที่กำหนดชื่อว่า messages ไว้ออกมาใช้งานแทน
-  const publishedMessage = useSelector(state => state.messages);
-
-  const renderedMessage = publishedMessage.map(message => (
-    <ChatMessage key={message.id} sender={message.sender} message={message.message}/>
-  ))
-
-  return (
-    <Row>
-        <Container>
-          <div className="chatroom">
-            {
-              renderedMessage
-            }
-          </div>
-        </Container>
-    </Row>
-  )
-}
-
-export default Chatroom
 ```

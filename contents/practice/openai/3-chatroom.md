@@ -1,12 +1,13 @@
 
-# 3. สร้าง Chatroom
+# 3. สร้าง ChatHistoryComponent
 
 ```js
-// src/components/chatroom/Chatroom.js
+// src/components/chatHistory/ChatHistoryComponent.js
 
 import React from 'react'
 import { Container, Row } from 'react-bootstrap';
-function Chatroom() {
+
+function ChatHistoryComponent() {
 
   return (
     <Row>
@@ -19,7 +20,7 @@ function Chatroom() {
   )
 }
 
-export default Chatroom
+export default ChatHistoryComponent
 ```
 
 ## เพิ่ม Component ใน App.js 
@@ -29,8 +30,8 @@ export default Chatroom
 
 import './App.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import Chatroom from './components/chatroom/Chatroom';
-import PromptInput from './components/promptinput/PromptInput';
+import PromptInputComponent from './components/promptInput/PromptInputComponent';
+import ChatHistoryComponent from './components/chatHistory/ChatHistoryComponent';
 
 function App() {
   return (
@@ -40,13 +41,14 @@ function App() {
           <h1>My GPT</h1>
         </Col>
       </Row>
-      {/* Chatroom */}
-      <Chatroom/>
+      {/* ChatHistoryComponent */}
+      <ChatHistoryComponent/>
       {/* PromptInput */}
-      <PromptInput/>
+      <PromptInputComponent/>
     </Container>
   );
 }
 
 export default App;
+
 ```
