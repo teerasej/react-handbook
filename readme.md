@@ -20,11 +20,10 @@
 0. [สร้างโปรเจค React App](contents/create-react-app.md)
 1. [Using React ในไฟล์ HTML ธรรมดา](contents/using-react.md)
 2. [JSX](contents/jsx.md)
-3. สร้าง และใช้งาน Component [Function Component](contents/function-component.md) | [Class Component](contents/class-component.md)
-4. 
-5. [Props](contents/props.md)
-6. [Event](contents/event.md)
-7. [State](contents/state.md)
+3. สร้าง และใช้งาน Component: [Function Component](contents/function-component.md) | [Class Component](contents/class-component.md)
+4. [Props](contents/props.md)
+5. [Event](contents/event.md)
+6. [State](contents/state.md)
 
 # Redux 
 
