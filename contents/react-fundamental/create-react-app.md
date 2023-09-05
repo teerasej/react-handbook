@@ -19,7 +19,7 @@ npm start
 
 ## ใครติดปัญหาสร้างโปรเจคไม่ได้
 
-1. ให้[ดาวน์โหลด zip file มาจากที่นี่](https://github.com/teerasej/nextflow-react-my-app-starter)https://github.com/teerasej/nextflow-react-my-app-starter
+1. ให้[ดาวน์โหลด zip file มาจากที่นี่](https://github.com/teerasej/nextflow-react-my-app-starter)
 2. แตก zip file
 3. เปิดโฟลเดอร์ของโปรเจคขึ้นมาใน Visual Studio Code (หรือ Terminal หรือ Command Prompt)
 4. รันคำสั่ง `npm install`
