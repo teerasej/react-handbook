@@ -122,6 +122,8 @@ export default function CounterComponent() {
 
     // ประกาศตัวแปร state, setter function และค่าเริ่มต้น
     const [countState, setCountState] = useState(1)
+
+    console.log('Now, countState is ' + countState)
     
     const increase = () => {
         // กำหนดค่าให้ countState ผ่าน setter function
