@@ -7,6 +7,10 @@
 
 ดูส่วนของ [Node Handbook ได้ที่นี่](https://github.com/teerasej/node-handbook/)
 
+## Survey!! 😎❤️🥳
+
+[https://www.directpoll.com/v?XDVhEta7gDsJpfk0jL6fsGb2h9xQ9M](http://etc.ch/jBGx)
+
 ## Setup your machine
 
 - [Setup](contents/setup.md)
