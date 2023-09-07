@@ -22,7 +22,7 @@ function ChatHistoryComponent() {
         <ChatMessageComponent
             key={message.id}
             sender={message.sender}
-            message={message.message} />
+            text={message.text} />
     ))
 
     return (
