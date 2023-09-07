@@ -13,9 +13,9 @@ cd nextflow-openai-react-redux-simple
 npm install 
 ```
 
-2. [สร้าง PromptInput](2-promptinput.md)
-3. [สร้าง Chatroom](3-chatroom.md)
-4. [สร้าง ChatMessage](4-message-box.md)
+2. [สร้าง User Interface: Prompt input](2-promptinput.md)
+3. [สร้าง User Interface: Chat history](3-chatroom.md)
+4. [สร้าง User Interface: ChatMessage](4-message-box.md)
 
 ## Part 2: Redux
 
