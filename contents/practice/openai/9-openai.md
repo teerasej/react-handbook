@@ -162,6 +162,8 @@ function PromptInputComponent() {
         // เรียกใช้งาน askAI thunk โดยส่งข้อความ message ให้เป็น parameter
         const thunkAction = askAI(message)
         dispatch(thunkAction)
+
+        setMessage("")
     };
 
     return (
