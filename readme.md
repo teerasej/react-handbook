@@ -21,35 +21,35 @@
 - [แบบทั่วไป](/contents/react-fundamental/README.md)
 - [แบบ Classic (ติดตั้ง และเรียกใช้ React ใน HTML ด้วยตัวเอง)](/contents/react-fundamental-classic/README.md)
 
-# Redux 
+## Redux 
 
 - [Counter](contents/practice/counter/readme.md)
 - [OpenAI Client](contents/practice/openai/readme.md)
 
 
-# React in Action 
+## React in Action 
 
-## Function Component 
+### Function Component 
 
 - [Item Manager App](contents/practice/item-manager-app/readme.md)
 - [Dashboard Web App](contents/practice/dashboard-app-function-component/readme.md) (Function component)
 
-## Class Component
+### Class Component
 
 - [Note App](contents/practice/note-app-saga/readme.md)
 - [Location Selector](contents/practice/location-selector/readme.md)
 - [Dashboard Web App](contents/practice/dashboard-app/readme.md)
 - [COVID-19 Report](contents/practice/covid-today/readme.md)
 
-# React + Redux 
+## React + Redux 
 
 - [Branch Dashboard (Redux focused)](contents/practice/dashboard-app-redux-focus/readme.md)
 - [Member Application](contents/practice/member-app/readme.md)
 
-# Publish React
+## Publish React
 
 - [การ Publish โปรเจคไปใช้งาน](contents/publish.md) 
 
-# Debugging React with VSCode
+## Debugging React with VSCode
 
 - [Debugging React with VSCode](contents/debugging.md)
