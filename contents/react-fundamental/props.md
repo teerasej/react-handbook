@@ -9,22 +9,29 @@
 ทดลองกำหนด และใช้งาน props กับ Hello Component ตามด้านล่าง
 
 ```jsx
-// src/App.js
+// src/App.ts
 
 import logo from './logo.svg';
 import './App.css';
 
-// ประกาศ parameter ชื่อ props เพื่อดึงค่ามาใช้งานภายใน component
-const Hello = (props) => {
+// กำหนด interface ของ props ที่จะใช้ใน component 
+interface HelloProps {
+  username: string;
+}
 
-  // property ที่ส่งเข้ามา สามารถเข้าถึงได้ผ่านการเรียกใช้ parameter
-  let username = props.username
+// ประกาศ parameter ชื่อ props เพื่อดึงค่ามาใช้งานภายใน component
+function Hello(props: HelloProps) {
+  
+  const username = props.username;
+
+  // หรือจะเขียนแบบ de-construct ก็ได้
+  // const { username } = props;
 
   return (
     <div className="danger">
       <h1>Hello {username}</h1>
     </div>
-  )
+  );
 }
 
 function Goodbye() {
@@ -62,13 +69,17 @@ export default App;
 ผลจากการทำวิธีนี้ เราสามารถควบคุมค่าที่ส่งเข้ามาใน Component ได้โดยตรง ไม่ dynamic เมื่อการเรียกใช้ค่าผ่าน `props`
 
 ```jsx
-// src/App.js
+// src/App.ts
 
 import logo from './logo.svg';
 import './App.css';
 
+interface HelloProps {
+  username: string;
+}
+
 // ใช้เทคนิค de-construct กับ parameter object โดยเลือกแค่ชื่อ Property 'username' มาใช้งาน
-const Hello = ({ username }) => {
+const Hello = ({ username }:HelloProps) => {
 
   return (
     <div className="danger">

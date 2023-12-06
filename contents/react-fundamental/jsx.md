@@ -1,35 +1,40 @@
 
 # Using JSX
 
-
 ## 1. Use JSX in react
 
 JSX จะเป็นของเลียนแบบ HTML ที่เขียนลงไปในโค้ดไฟล์ JavaScript โดยตรง 
 
 ### 1.1 มาดู Component ตัวแรกของโปรเจค
 
-ลองเปิดไฟล์ `src/index.js` จะเห็นว่ามีคำสั่ง JavaScript ในการสั่ง render `<App>` component อยู่ในบรรทัดที่ 10
+ลองเปิดไฟล์ `src/index.ts` จะเห็นว่ามีคำสั่ง JavaScript ในการสั่ง render `<App>` component อยู่ในบรรทัดที่ 10
 
 ```jsx
-const root = ReactDOM.createRoot(document.getElementById('root'));
+...
+
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement
+);
 root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>
 );
+
+...
 ```
 
 ซึ่งนี่เป็นการเรียกใช้ React ให้ทำการเริ่มทำงานเพื่อสร้าง component ตัวแรก โดยกำหนดให้ render component ในไฟล์ `public/index.html` ในโค้ด บรรทัดที่ 31 ที่เป็น `<div id="root">`
 
 ### 1.2 App Component อยู่ที่ไหน
 
-ในที่นี้ให้เปิดไฟล์ `src/App.js` ที่นี่จะมี code ซึ่งกำหนดการทำงาน และหน้าตาของ App Component อยู่
+ในที่นี้ให้เปิดไฟล์ `src/App.ts` ที่นี่จะมี code ซึ่งกำหนดการทำงาน และหน้าตาของ App Component อยู่
 
-ให้ลองแก้ไขโค้ดบรรทัดที่ 9 - 11 จาก
+ให้ลองแก้ไขโค้ดบรรทัดที่ 10 - 12 จาก
 
 ```html
 <p>
-   Edit <code>src/App.js</code> and save to reload.
+  Edit <code>src/App.tsx</code> and save to reload.
 </p>
 ```
 
@@ -48,8 +53,9 @@ root.render(
 เอาล่ะ ก่อนไปขั้นตอนต่อไป ลองแก้ไข JSX ของ App component ให้เป็นแบบด้านล่างดู
 
 ```jsx
-// src/App.js
+// src/App.ts
 
+import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -63,6 +69,7 @@ function App() {
 
 export default App;
 
+
 ```
 
 ## การใช้ตัวแปร กับ JSX
@@ -70,6 +77,8 @@ export default App;
 เราสามารถใช้ **expression** (หรือที่เห็นเป็นเครื่องหมาย `{}`) ใน JSX เพื่อแทรกตัวแปรลงไปแสดงผลได้
 
 ```jsx
+// src/App.ts
+
 import logo from './logo.svg';
 import './App.css';
 
@@ -97,6 +106,8 @@ export default App;
 โดยในที่นี้จะเห็นว่าตัวโปรเจคมีการเขียนไฟล์ `src/App.css` แยกออกมาด้วย ลองเปิดไฟล์ และเขียน CSS Selector เพิ่มเข้าไปตามด้านล่าง
 
 ```css
+/* src/App.css */
+
 #header {
     font-size: 60px;
 } 
@@ -106,10 +117,11 @@ export default App;
 }
 ```
 
-กลับมาที่ไฟล์ `src/App.js` จะเห็นคำสั่ง `import` ไฟล์ CSS เพื่อเอาเข้ามาใช้ใน component
+กลับมาที่ไฟล์ `src/App.ts` จะเห็นคำสั่ง `import` ไฟล์ CSS เพื่อเอาเข้ามาใช้ใน component
 
 ```jsx
-// src/App.js
+// src/App.ts
+
 import logo from './logo.svg';
 
 // คำสั่ง import css

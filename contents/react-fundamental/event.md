@@ -5,12 +5,15 @@
 
 
 ```jsx
-// src/App.jsx
+// src/App.tsx
 
 import logo from './logo.svg';
 import './App.css';
 
-const Hello = (props) => {
+interface HelloProps {
+  username: string;
+}
+const Hello = (props:HelloProps) => {
 
   let username = props.username
 

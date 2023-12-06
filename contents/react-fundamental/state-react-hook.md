@@ -5,12 +5,12 @@
 
 ## 1. สร้าง CounterComponent.js
 
-สร้างไฟล์ `src/CounterComponent.js`
+สร้างไฟล์ `src/CounterComponent.tsx`
 
 ในไฟล์ให้เขียนประกาศ Component ตามด้านล่าง (สามารถใช้ **rfc** หรือ **rafc** snippet ได้)
 
 ```jsx
-// src/CounterComponent.js
+// src/CounterComponent.ts
 
 import React from 'react'
 
@@ -40,10 +40,10 @@ export default function CounterComponent() {
 
 ## 2. แสดง CounterComponent ใน App.js
 
-เสร็จแล้วเอาไปแสดงใน `src/App.js`
+เสร็จแล้วเอาไปแสดงใน `src/App.tsx` ด้วยการ import และใช้งาน `CounterComponent` ใน `src/App.tsx`
 
 ```jsx
-// src/App.js
+// src/App.tsx
 
 import logo from './logo.svg';
 import './App.css';
@@ -51,7 +51,13 @@ import './App.css';
 // คำสั่ง import CounterComponent จากไฟล์ที่ประกาศไว้
 import CounterComponent from './CounterComponent';
 
-const Hello = (props) => {
+
+
+interface HelloProps {
+  username: string;
+}
+
+const Hello = (props:HelloProps) => {
 
   let username = props.username
 

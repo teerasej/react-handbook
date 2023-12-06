@@ -1,27 +1,23 @@
 
-# React Handbook
+# React Handbook (TypeScript Edition)
 
 - by Teerasej Jiraphatchandej, [Nextflow.in.th](https://www.nextflow.in.th)
 
 สนใจติดต่อ จัดอบรม [โทร 083-071-3373](tel:083-071-3373) หรือส่ง Email มาที่ [training@nextflow.in.th](mailto:training@nextflow.in.th)
 
-ดูส่วนของ [Node Handbook ได้ที่นี่](https://github.com/teerasej/node-handbook/)
-
-## Survey!! 😎❤️🥳
-
-[https://www.directpoll.com/v?XDVhEta7gDsJpfk0jL6fsGb2h9xQ9M](http://etc.ch/jBGx)
+ดูส่วนของ [Node Handbook ได้ที่นี่](https://github.com/teerasej/node-handbook/tree/typescript-based)
 
 ## Setup your machine
 
 - [Setup](contents/setup.md)
 
-
 ## React Fundamental 
 
 - [แบบทั่วไป](/contents/react-fundamental/README.md)
-- [แบบ Classic (ติดตั้ง และเรียกใช้ React ใน HTML ด้วยตัวเอง)](/contents/react-fundamental-classic/README.md)
 
-## Redux 
+## State Management
+
+### A. Redux 
 
 - [Counter](contents/practice/counter/readme.md)
 - [OpenAI Client](contents/practice/openai/readme.md)
