@@ -14,6 +14,7 @@
 ## React Fundamental 
 
 - [แบบทั่วไป](/contents/react-fundamental/README.md)
+- [การใช้ Tailwind CSS ในโปรเจค](contents/tailwindcss/README.md)
 
 ## State Management
 
