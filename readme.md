@@ -16,9 +16,7 @@
 - [แบบทั่วไป](/contents/react-fundamental/README.md)
 - [การใช้ Tailwind CSS ในโปรเจค](contents/tailwindcss/README.md)
 
-## State Management
-
-### A. Redux 
+## Redux State Management
 
 - [Counter](contents/practice/counter/readme.md)
 - [OpenAI Client](contents/practice/openai/readme.md)

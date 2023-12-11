@@ -11,8 +11,10 @@
 
 - สามารถ download หรือ clone มาได้จากที่นี่ https://github.com/teerasej/nextflow-react-app-typescript/tree/tailwind-setup
 
-## 2. การใช้งาน
+## 2. Project 
 
-1. [สร้าง Menu หรือ Navigation ของเว็บไซต์](nav.md)
-2. [สร้าง Layout หน้า Home](build-home-page.md)
+- [The Ecommerce Project](ecommerce-project/readme.md)
 
+## 3. การ publish โปรเจค
+
+- [การ publish Vite โปรเจคไปใช้งาน](publish.md)
