@@ -2,6 +2,8 @@
 
 # แสดง Product Item ในหน้า Product Page
 
+https://tailwindcss.com/docs/grid-template-columns
+
 ```tsx
 // src/pages/products-page/ProductsPage.tsx
 
