@@ -13,7 +13,7 @@
 
 ## 2. Project 
 
-- [The Ecommerce Project](ecommerce-project/readme.md)
+- [The Ecommerce Project](ecommerce-project/README.md)
 
 ## 3. การ publish โปรเจค
 
