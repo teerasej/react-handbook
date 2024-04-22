@@ -29,6 +29,10 @@
 5. แล้วก็ติดตั้ง Extension บน Web Browser ตามรายการต่อไปนี้ 
    1. [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools)
    2. [Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools)
+  
+## Account ที่ควรมี
+
+[สมัคร Github Account](https://github.com/signup) ให้เรียบร้อย
 
 
 
