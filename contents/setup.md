@@ -14,7 +14,7 @@
 
 > ⚠️⚠️⚠️ หากทางผู้ดูแลระบบไม่ได้มีการอำนวยความสะดวกในการผ่อนปรนตามสถานการณ์ด้านบน ทางผู้เข้าอบรมอาจจะไม่สามารถใช้คอมพิวเตอร์นั้นเรียนรู้ หรือทำ workshop บางส่วนได้ จึงขอแจ้งมาเพื่อทราบครับ
 
-## สำหรับ Computer
+## 1. สำหรับ Computer
 
 ทำการดาวน์โหลดตัวติดตั้ง และดำเนินการติดตั้งให้เรียบร้อย
 
@@ -30,7 +30,7 @@
    1. [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools)
    2. [Redux Dev Tools](https://chrome.google.com/webstore/detail/redux-devtools)
   
-## Account ที่ควรมี
+## 2. สมัคร Account ที่ควรมี
 
 [สมัคร Github Account](https://github.com/signup) ให้เรียบร้อย
 
