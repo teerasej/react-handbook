@@ -24,6 +24,8 @@ npm start
 
 ## 3. Open React DevTools
 
+<img width="742" alt="2024-04-25_22-16-08 (1)" src="https://github.com/teerasej/react-handbook/assets/85179/cb5eb26e-b975-47d2-8547-b49b7bbd14c3">
+
 1. Open your browser's developer tools by right-clicking on the page and selecting "Inspect" or pressing `F12`. 
 2. Go to the "Profiler" tab
 3. click 'reload and start profiling' button to start profiling your application.
