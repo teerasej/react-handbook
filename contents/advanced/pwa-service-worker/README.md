@@ -125,13 +125,24 @@ npm start
 2. Open Developer Tools (F12)
 3. Navigate to the Application tab
 4. From the left menu, open the Service Workers tab to check that the service worker is registered and running.
+
+<img width="429" alt="2024-04-24_21-40-53" src="https://github.com/teerasej/react-handbook/assets/85179/a8b96776-40b9-42df-a0e3-be84585e7dee">
+
+
 5. From the left menu, open the Cache Storage tab to check that the assets are being cached.
+
+<img width="677" alt="2024-04-24_21-39-53" src="https://github.com/teerasej/react-handbook/assets/85179/2b69e041-2f11-4219-9a02-c21f68aeea7c">
+
 
 #### Simulate Offline Mode
 
 1. Open the app in your browser
 2. navigate to the Network tab in the developer tools. 
 3. In the network condition below, select 'Network throttling' and choose 'Offline' from the dropdown.
+
+<img width="469" alt="2024-04-24_21-31-04" src="https://github.com/teerasej/react-handbook/assets/85179/65a5ab06-f661-4f7c-83f6-1c92f48e1fc5">
+
+
 4. Refresh the page and check that the assets are being served from the cache.
 5. Notice that some assets may not be cached, such as API requests.
 
