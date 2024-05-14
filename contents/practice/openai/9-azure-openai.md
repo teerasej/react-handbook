@@ -1,10 +1,6 @@
 
-# 9. เรียกใช้ OpenAI API
+# 9. เรียกใช้ Azure OpenAI Service
 
-1. [สมัครใช้งาน OpenAI Developer](https://platform.openai.com/signup)
-   - สามารถสร้าง account ใหม่ โดยการใช้ Google Account หรือ Microsoft Account ได้ 
-   - จะมีการกรอกเบอร์โทรศัพท์ และรับ SMS-OTP เพื่อยืนยันตัวตน
-2. หลังจากได้ account และ login เข้าไปใน Dashboard ได้แล้ว ให้[เข้าไปสร้าง OpenAI API Key ขึ้นมา และ copy มาเตรียมใช้งาน](https://platform.openai.com/account/api-keys)
 
 ## เรียนรู้เพิ่มเติม
 
@@ -12,6 +8,11 @@
 - [เริ่มต้นเรียนรู้ ทำแอพ AI ด้วย Semantic Kernel ฉบับคนใช้ Python](https://learn.nextflow.in.th/getting-started-with-semantic-kernel)
 
 ## 1. สร้าง thunk ชื่อ askAI
+
+### Key
+```
+98db6ffc7e3447678d4ee3ba4ec3d45a
+```
 
 สร้างไฟล์​ `src/redux/askAIThunk.js`
 
@@ -38,8 +39,22 @@ export const askAI = createAsyncThunk(
 
     // สร้าง JSON object ในการส่งไปที่ OpenAI API
     const jsonPrompt = JSON.stringify({
-      "model": "gpt-3.5-turbo",
-      "messages": [{ "role": "user", "content": prompt }]
+      "messages": [
+        {
+          "role": "system",
+          "content": "You are an AI assistant that helps people find information."
+        },
+        {
+          "role": "user",
+          "content": prompt
+        },
+      ],
+      "temperature": 0.7,
+      "top_p": 0.95,
+      "frequency_penalty": 0,
+      "presence_penalty": 0,
+      "max_tokens": 800,
+      "stop": null
     });
 
     console.log('Sending prompt:')
@@ -47,19 +62,20 @@ export const askAI = createAsyncThunk(
 
     // ใช้ axios ส่ง request โดยการกำหนด key และ json 
     const response = await axios.post(
-      'https://api.openai.com/v1/chat/completions',
+      'https://openai-nextflow.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2024-02-15-preview',
       jsonPrompt,
       {
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${key}`
+          'api-key': key
         }
       });
 
     console.log('got response:')
+    console.log(response)
     console.log(response.data.choices[0].message.content);
 
-    // ดึงเฉพาะส่วนข้อความที่ API ตอบกลับมา
+     // ดึงเฉพาะส่วนข้อความที่ API ตอบกลับมา
     return response.data.choices[0].message.content;
 
   }
