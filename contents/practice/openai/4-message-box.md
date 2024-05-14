@@ -73,8 +73,8 @@ function ChatHistoryComponent() {
 
     // สร้าง Array เป็นตัวแทนของ message ที่จะแสดงใน chat history 
     const chatHistory = [
-        { id: 1, sender: 'User', message: 'Hello' },
-        { id: 2, sender: 'GPT', message: 'Hi' }
+        { id: 1, sender: 'User', text: 'Hello' },
+        { id: 2, sender: 'GPT', text: 'Hi' }
     ];
 
     // สร่้าง Array ของ JSX 
