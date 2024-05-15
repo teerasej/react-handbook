@@ -9,7 +9,7 @@
 
 ## Survey!! 😎❤️🥳
 
-[https://www.directpoll.com/v?XDVhEta7gDsJpfk0jL6fsGb2h9xQ9M](http://etc.ch/jBGx)
+-- next time --
 
 ## Setup your machine
 
