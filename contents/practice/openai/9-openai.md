@@ -129,7 +129,7 @@ export const { addMessageToHistory } = chatSlice.actions
 export default chatSlice.reducer
 ```
 
-## 2. เรียกใช้ Thunk จากใน Component 
+## 3. เรียกใช้ Thunk จากใน Component 
 
 เราจะทำการเรียกใช้ thunk และส่งข้อความไปหา openAI จากใน PromptInputComponent
 
