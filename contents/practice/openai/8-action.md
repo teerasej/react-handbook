@@ -29,7 +29,7 @@ const chatSlice = createSlice({
       // นำข้อมูลจาก action.payload มาเพิ่มเป็น chat message item ใหม่ใน state 
       state.chatHistory.push({
           id: Math.floor(Math.random() * 1000),
-          sender: 'Me',
+          sender: 'User',
           text: action.payload
         })
 
@@ -48,7 +48,8 @@ export default chatSlice.reducer
 ```js
 // src/components/promptInput/PromptInputComponent.js
 
-import React from 'react'
+// import useState
+import React, { useState } from 'react'
 import { Row, Col, Form, Button } from 'react-bootstrap';
 
 // เรียกใช้ useDispatch
@@ -56,7 +57,8 @@ import { useDispatch } from 'react-redux';
 import { addMessageToHistory } from '../../redux/chatSlice';
 
 function PromptInputComponent() {
-
+    
+    // สร้าง useState เพื่อเรียกเก็บและ reset message จาก input
     const [message, setMessage] = useState("")
 
     const handleChange = (e) => {

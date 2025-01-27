@@ -22,7 +22,8 @@ function ChatHistoryComponent() {
         <ChatMessageComponent
             key={message.id}
             sender={message.sender}
-            text={message.text} />
+            text={message.text} 
+            isUser={chatMessage.sender === 'User'} />
     ))
 
     return (

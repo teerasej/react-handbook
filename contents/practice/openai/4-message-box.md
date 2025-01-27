@@ -3,16 +3,17 @@
 
 ## 1. สร้างไฟล์ CSS 
 
-สร้างไฟล​์ `src/components/chatHistory/ChatMessage.css`
+เปิดไฟล​์ `src/components/chatHistory/ChatMessage.css`
 
 ```css
 /* src/components/chatHistory/ChatMessage.css */
-.msg-bubble {
-    
-    margin-bottom: 5px;
-    background-color: darkgrey;
-} 
+.chatroom {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
 
+/* Global message box */
 .msg-bubble .sender {
     padding: 10px;
     background-color: grey;
@@ -20,6 +21,26 @@
 
 .msg-bubble .message {
     padding: 10px;
+}
+
+/* User's message box */
+.msg-bubble.user {
+    background-color: lightblue;
+}
+
+.msg-bubble.user .sender {
+    background-color: blue;
+    color: white;
+}
+
+/* GPT's Message box */
+.msg-bubble.gpt {
+    background-color: lightgreen;
+}
+
+.msg-bubble.gpt .sender {
+    background-color: green;
+    color: white;
 }
 ```
 
@@ -36,14 +57,14 @@ import { Col, Container, Row } from 'react-bootstrap'
 
 function ChatMessageComponent(props) {
 
-  let { sender, text } = props
+  let { sender, text, isUser } = props
   // สามารถใช้วิธีด้านล่างนี้ได้เหมือนกัน
   // let sender = props.sender
   // let text = props.text
 
   return (
     <Container>
-      <Row className='msg-bubble'>
+      <Row className={`msg-bubble ${isUser ? 'user' : 'gpt'}`}>
         <Col xs={1} className='sender'>
           {sender}
         </Col>
@@ -78,11 +99,13 @@ function ChatHistoryComponent() {
     ];
 
     // สร่้าง Array ของ JSX 
+    // สร่้าง Array ของ JSX 
     const renderedMessage = chatHistory.map(chatMessage => (
         <ChatMessageComponent
             key={chatMessage.id}
             sender={chatMessage.sender}
-            text={chatMessage.text} />
+            text={chatMessage.text}
+            isUser={chatMessage.sender === 'User'} />
     ))
 
     return (

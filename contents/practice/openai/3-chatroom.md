@@ -26,8 +26,10 @@ export default ChatHistoryComponent;
 ```
 ## 2. กำหนด style ให้ chat history
 
+เปิดไฟล์ CSS ที่อยู่ใน folder เดียวกัน
+
 ```css
-// src/components/chatHistory/ChatMessage.css
+/* src/components/chatHistory/ChatMessage.css */
 .chatroom {
   border: 1px solid #ccc;
   padding: 10px;
