@@ -1,6 +1,8 @@
 
 # 3. สร้าง ChatHistoryComponent
 
+## 1. สร้าง Chat History Component
+
 ```js
 // src/components/chatHistory/ChatHistoryComponent.js
 
@@ -22,8 +24,19 @@ function ChatHistoryComponent() {
 
 export default ChatHistoryComponent;
 ```
+## 2. กำหนด style ให้ chat history
 
-## เพิ่ม Component ใน App.js 
+```css
+// src/components/chatHistory/ChatMessage.css
+.chatroom {
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+}
+```
+
+
+## 3. เพิ่ม Component ใน App.js 
 
 ```js
 // src/App.js
