@@ -80,6 +80,11 @@ function PromptInputComponent() {
         setMessage("");
     };
 
+    const handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            onSubmit(e);
+        }
+    };
 
     return (
         <Row>
@@ -92,6 +97,7 @@ function PromptInputComponent() {
                             type="text"
                             onChange={handleChange}
                             value={message}
+                            onKeyDown={handleKeyDown}
                             />
                     </Form.Group>
 
@@ -103,6 +109,8 @@ function PromptInputComponent() {
             </Col>
         </Row>
     )
+
+    
 }
 
 export default PromptInputComponent
