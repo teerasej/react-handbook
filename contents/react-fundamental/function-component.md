@@ -16,8 +16,8 @@ import './App.css';
 
 // สร้าง Function Component 
 const Hello = () => {
+  // สังเกตว่า CSS สามารถนำมาใช้งานใน component ได้ด้วย ตราบเท่าที่มีการ import เข้ามาใช้งาน
   return (
-      {/* สังเกตว่า CSS สามารถนำมาใช้งานใน component ได้ด้วย ตราบเท่าที่มีการ import เข้ามาใช้งาน */}
       <div className="danger">
           <h1>Hello World</h1>
       </div>
