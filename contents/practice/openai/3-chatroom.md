@@ -4,23 +4,23 @@
 ```js
 // src/components/chatHistory/ChatHistoryComponent.js
 
-import React from 'react'
+import React from 'react';
 import { Container, Row } from 'react-bootstrap';
+import './ChatMessage.css'; // Import the CSS file
 
 function ChatHistoryComponent() {
-
   return (
     <Row>
-        <Container>
-          <div className="chatroom">
-            
-          </div>
-        </Container>
+      <Container>
+        <div className="chatroom">
+          {/* Chat messages will go here */}
+        </div>
+      </Container>
     </Row>
-  )
+  );
 }
 
-export default ChatHistoryComponent
+export default ChatHistoryComponent;
 ```
 
 ## เพิ่ม Component ใน App.js 
