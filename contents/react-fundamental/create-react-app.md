@@ -1,5 +1,7 @@
 # สร้าง Creaet React App
 
+> ในที่นี้จะเป็นการสร้างโปรเจคเก็บไว้ใน directory หนึ่งในเครื่อง สามารถสร้าง folder ใหม่ขึ้นมาและตั้งชื่อว่า my_react_project
+
 ## 1. ใช้คำสั่ง สร้าง react project
 
 ```bash
