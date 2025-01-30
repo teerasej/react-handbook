@@ -21,9 +21,14 @@ function PromptInputComponent() {
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
-            onSubmit(e);
+            console.log('Enter');
+            handleSubmit(e);
         }
     };
+
+    const handleSubmit = (e) => {
+        console.log(message);
+    }
 
     return (
         <Row>
@@ -39,7 +44,7 @@ function PromptInputComponent() {
                             onKeyDown={handleKeyDown}
                             />
                     </Form.Group>
-                    <Button variant="primary" onClick={onSubmit}>
+                    <Button variant="primary" onClick={handleSubmit}>
                         Send
                     </Button>
                 </Form>
