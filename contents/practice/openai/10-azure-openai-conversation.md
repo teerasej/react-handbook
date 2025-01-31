@@ -11,16 +11,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios';
 
-// import useSelector เพื่อดึง chat history จาก redux store มาใช้
-import { useSelector } from 'react-redux';
-
 const key = '';
 
 export const askAI = createAsyncThunk(
   'user/askAI',
 
- 
-  async (prompt) => {
+ // เรียกใช้ getState function เพื่อเข้าถึง redux store จากภายใน thunk
+  async (prompt , { getState }) => {
 
     console.log('fetching openAI')
 
