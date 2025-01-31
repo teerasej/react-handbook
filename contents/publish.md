@@ -23,3 +23,4 @@ serve -s build
 ## เพิ่มเติม
 
 - [การ deploy โปรเจค create-react-app ไปไว้ในที่ที่ไม่ใช่ Web root](https://nextflow.in.th/2020/react-deploy-with-relative-path-create-react-app/)
+- [Deploy create-react-app ไปที่ Microsoft IIS (English)](https://dev.to/sumitkharche/how-to-deploy-react-application-on-iis-server-1ied)
