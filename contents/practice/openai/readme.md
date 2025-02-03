@@ -23,5 +23,5 @@ npm install
 6. [สร้าง Reducer Slice](6-reducer.md)
 7. [ดึงข้อมูลจาก Reducer มาใช้ด้วย `useSelector()`](7-show-chat-history.md)
 8. [สร้างและเรียกใช้ Action](8-action.md)
-9. สร้าง Thunk เพื่อเรียกใช้ Async Operation [OpenAI API](9-openai.md)|[Azure OpenAI Service](9-azure-openai.md)
+9. สร้าง Thunk เพื่อเรียกใช้ Async Operation [Azure OpenAI Service](9-azure-openai.md) | [OpenAI API](9-openai.md) 
 10. (Optional) คุยต่อเนื่อง [Azure OpenAI service](10-azure-openai-conversation.md)
