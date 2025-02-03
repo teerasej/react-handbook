@@ -35,7 +35,7 @@ export const askAI = createAsyncThunk(
   // รับค่าที่เข้ามาใช้่งาน ในที่นี้คือ prompt message
   async (prompt) => {
 
-    console.log('fetching openAI')
+    console.log('Asking AI...')
 
     // สร้าง JSON object ในการส่งไปที่ OpenAI API
     const jsonPrompt = JSON.stringify({
