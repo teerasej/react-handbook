@@ -2,6 +2,14 @@
 
 > ในที่นี้จะเป็นการสร้างโปรเจคเก็บไว้ใน directory หนึ่งในเครื่อง สามารถสร้าง folder ใหม่ขึ้นมาและตั้งชื่อว่า my_react_project
 
+### Wanna try in codespace?
+
+ถ้าต้องการ สามารถใช้[โปรเจคเดียวกันนี้](https://github.com/teerasej/nextflow-react-js-app-starter)รันบน Github Codespace ได้นะ
+
+```
+https://github.com/teerasej/nextflow-react-js-app-starter
+```
+
 ## 1. ใช้คำสั่ง สร้าง react project
 
 ```bash
