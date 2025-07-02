@@ -7,3 +7,7 @@
 4. ส่งผ่านข้อมูลให้กับ component ผ่าน [Props](props.md)
 5. รันโค้ดตามเงื่อนไขด้วย [Event](event.md)
 6. ควบคุมการ render UI ด้วยข้อมูลล่าสุด ผ่าน [State](state.md)
+
+## Optional
+
+- [`useMemo` hook](https://github.com/teerasej/nextflow-react-js-vite/tree/example-usememo)
