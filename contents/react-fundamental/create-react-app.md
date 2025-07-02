@@ -1,8 +1,8 @@
-# สร้าง Creaet React App
+# สร้าง Create React App
 
 > ในที่นี้จะเป็นการสร้างโปรเจคเก็บไว้ใน directory หนึ่งในเครื่อง สามารถสร้าง folder ใหม่ขึ้นมาและตั้งชื่อว่า my_react_project
 
-### Wanna try in codespace?
+### Wanna try project in codespace?
 
 ถ้าต้องการ สามารถใช้[โปรเจคเดียวกันนี้](https://github.com/teerasej/nextflow-react-js-app-starter)รันบน Github Codespace ได้นะ
 
