@@ -1,6 +1,14 @@
 
 # Using JSX
 
+### Wanna try Vite project in codespace?
+
+ถ้าต้องการลองแบบ Vite JS สามารถใช้[โปรเจคเดียวกันนี้](https://github.com/teerasej/nextflow-react-js-vite) รันบน Github Codespace ได้นะ
+
+```
+https://github.com/teerasej/nextflow-react-js-vite
+```
+
 
 ## 1. Use JSX in react
 
