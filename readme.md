@@ -24,8 +24,7 @@
 ## Redux 
 
 - [Counter](contents/practice/counter/readme.md)
-- [OpenAI Client](contents/practice/openai/readme.md)
-
+- [สร้าง Copilot Client](contents/practice/openai/readme.md)
 
 ## React in Action 
 
