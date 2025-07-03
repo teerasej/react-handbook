@@ -1,17 +1,35 @@
 
-# สร้าง OpenAI client 
+# สร้าง Copilot client 
 
 ในโปรเจคนี้เราใช้ component จาก [react-bootstrap](https://react-bootstrap.netlify.app/) นะ
 
 ## Part 1: User Interface
 
-1. โคลนโปรเจคด้วยคำสั่งด้านล่าง
+เลือกเริ่มโปรเจคได้ 2 วิธีคือ 
+A. โคลนโปรเจคมาไว้ในเครื่อง หรือ 
+B. ใช้ Codespace
+
+### A. โคลนโปรเจคมาไว้ในเครื่องด้วยคำสั่งด้านล่าง
 
 ```bash
 git clone -b starter https://github.com/teerasej/nextflow-openai-react-redux-simple
+```
+จากนั้นเข้าไปในโฟลเดอร์โปรเจค
+```bash
 cd nextflow-openai-react-redux-simple
+```
+และติดตั้ง package ที่จำเป็นด้วยคำสั่ง
+```bash
 npm install 
 ```
+
+### B. ใช้ Codespace
+
+1. Fork โปรเจค https://github.com/teerasej/nextflow-openai-react-redux-simple **โดยให้ติ๊ก only on branch main ออก** เพราะต้องใช้ branch starter ในการทำแลป
+2. ใน Repo ที่ได้มาให้เปลี่ยน branch เป็น `starter`
+3. เปิด Codespace จาก Repo ที่ fork มา
+
+### Part 2: Building Components 
 
 2. [สร้าง User Interface: Prompt input](2-promptinput.md)
 3. [สร้าง User Interface: Chat history](3-chatroom.md)
