@@ -1,17 +1,17 @@
 
 # สร้างโปรเจค และติดตั้ง module ที่จำเป็น
 
-สามารถที่จะสร้างโปรเจคใหม่ตามคำสั่งด้านล่าง หรือว่าจะ[โคลน git repo จากที่นี่](https://github.com/teerasej/nextflow-counter-redux-app/tree/start)มาก็ได้นะ (ให้แน่ใจว่าเลือก branch 'start' นะโอเค้?) 
+สามารถที่จะสร้างโปรเจคใหม่ตามคำสั่งด้านล่าง หรือว่าจะ[ใช้ git repo จากที่นี่](https://github.com/teerasej/nextflow-react-js-vite-counter/tree/starter)มาได้เหมือนกัน (ให้แน่ใจว่าเลือก branch 'starter' นะ) 
 
 หรือจะใช้ git command ด้านล่างในการ clone โปรเจคก็ได้
 ```bash
-git clone -b start https://github.com/teerasej/nextflow-counter-redux-app.git
+git clone -b start https://github.com/teerasej/nextflow-react-js-vite-counter
 ```
 
 ## 1. สร้างโปรเจค React
 
 ```bash
-npx create-react-app counter-redux-app
+npm create vite@latest counter-redux-app -- --template react
 ```
 
 ## 2. รันคำสั่งติดตั้ง package ที่จำเป็น
@@ -20,12 +20,6 @@ npx create-react-app counter-redux-app
 
 ```bash
 cd counter-redux-app
-npm install css-animation redux react-redux
+npm install redux react-redux
 ```
 
-### yarn 
-
-```bash
-cd counter-redux-app
-yarn add css-animation redux react-redux
-```

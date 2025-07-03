@@ -3,23 +3,24 @@
 
 
 ```jsx
-// src/App.js
+// src/App.jsx
 
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 import Counter from './components/Counter';
 import IncreaseButton from './components/IncreaseButton';
 
 
 function App() {
   return (
-   
-      <div className="App">
+    <>
+      <div>
         <Counter/>
         <IncreaseButton/>
       </div>
-   
+    </>
   );
 }
 
