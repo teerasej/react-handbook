@@ -10,4 +10,4 @@
 
 ## Optional
 
-- [`useMemo` hook](https://github.com/teerasej/nextflow-react-js-vite/tree/example-usememo)
+- [`useMemo` hook](https://github.com/teerasej/nextflow-react-js-vite/tree/example-usememo) ([reference](https://react.dev/reference/react/useMemo))
