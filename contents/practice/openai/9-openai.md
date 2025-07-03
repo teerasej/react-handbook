@@ -94,7 +94,7 @@ const chatSlice = createSlice({
       console.log(action.payload)
       state.chatHistory.push({
           id: Math.floor(Math.random() * 1000),
-          sender: 'Me',
+          sender: 'User',
           text: action.payload
         })
     },
