@@ -23,7 +23,7 @@ function ChatHistoryComponent() {
             key={message.id}
             sender={message.sender}
             text={message.text} 
-            isUser={chatMessage.sender === 'User'} />
+            isUser={message.sender === 'User'} />
     ))
 
     return (
