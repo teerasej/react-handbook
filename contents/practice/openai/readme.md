@@ -5,6 +5,8 @@
 
 ## Part 1: User Interface
 
+### 1.1 เริ่มโปรเจค
+
 เลือกเริ่มโปรเจคได้ 2 วิธีคือ 
 A. โคลนโปรเจคมาไว้ในเครื่อง หรือ 
 B. ใช้ Codespace
@@ -29,7 +31,7 @@ npm install
 2. ใน Repo ที่ได้มาให้เปลี่ยน branch เป็น `starter`
 3. เปิด Codespace จาก Repo ที่ fork มา
 
-### Part 2: Building Components 
+### 1.2 Building Components 
 
 2. [สร้าง User Interface: Prompt input](2-promptinput.md)
 3. [สร้าง User Interface: Chat history](3-chatroom.md)
