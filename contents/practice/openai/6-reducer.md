@@ -15,7 +15,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const initialState = {
     // สร้าง item ที่เป็นตัวแทนของข้อความ
     chatHistory: [
-      { sender: 'Me', text:'Oh yeah!'}
+      { id: 1, sender: 'User', text:'Oh yeah!'}
     ]
 }
 
