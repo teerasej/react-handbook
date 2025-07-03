@@ -5,12 +5,12 @@
 
 ## 1. สร้าง CounterComponent.jsx
 
-สร้างไฟล์ `src/CounterComponent.js`
+สร้างไฟล์ `src/CounterComponent.jsx`
 
 ในไฟล์ให้เขียนประกาศ Component ตามด้านล่าง (สามารถใช้ **rfc** หรือ **rafc** snippet ได้)
 
 ```jsx
-// src/CounterComponent.js
+// src/CounterComponent.jsx
 
 import React from 'react'
 
@@ -40,13 +40,15 @@ export default function CounterComponent() {
 
 ## 2. แสดง CounterComponent ใน App.js
 
-เสร็จแล้วเอาไปแสดงใน `src/App.js`
+เสร็จแล้วเอาไปแสดงใน `src/App.jsx`
 
 ```jsx
-// src/App.js
+// src/App.jsx
 
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 
 // คำสั่ง import CounterComponent จากไฟล์ที่ประกาศไว้
 import CounterComponent from './CounterComponent';
