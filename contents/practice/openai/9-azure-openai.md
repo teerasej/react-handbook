@@ -9,10 +9,8 @@
 
 ## 1. สร้าง thunk ชื่อ askAI
 
-### Key
-```
-98db6ffc7e3447678d4ee3ba4ec3d45a
-```
+ใน Redux เราสามารถสร้าง thunk เพื่อจัดการกับการทำงานที่เป็น asynchronous ได้ เช่น การเรียก API หรือการทำงานที่ใช้เวลาในการทำงาน
+เราจะสร้าง thunk ชื่อ `askAI` เพื่อเรียกใช้ OpenAI API และส่ง
 
 สร้างไฟล์​ `src/redux/askAIThunk.js`
 
@@ -25,7 +23,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios';
 
 // นำ key ของ OpenAI มาใช้งาน
-const key = '';
+const key = 'AL6VOGtIdqUhC0OSZpDYebzXaOam8O1xFblOsyWFzMSecWVCsk4fJQQJ99BGACYeBjFXJ3w3AAABACOGqWAT';
 
 // สร้าง AsyncThunk ชื่อ askAI
 export const askAI = createAsyncThunk(
@@ -62,7 +60,7 @@ export const askAI = createAsyncThunk(
 
     // ใช้ axios ส่ง request โดยการกำหนด key และ json 
     const response = await axios.post(
-      'https://openai-nextflow.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2024-02-15-preview',
+      'https://scbreact-2025-july.openai.azure.com/openai/deployments/gpt-4o-mini/chat/completions?api-version=2025-01-01-preview',
       jsonPrompt,
       {
         headers: {
@@ -110,7 +108,7 @@ const chatSlice = createSlice({
       console.log(action.payload)
       state.chatHistory.push({
           id: Math.floor(Math.random() * 1000),
-          sender: 'Me',
+          sender: 'User',
           text: action.payload
         })
     },
