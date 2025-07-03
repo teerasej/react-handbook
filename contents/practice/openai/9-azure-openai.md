@@ -40,7 +40,7 @@ export const askAI = createAsyncThunk(
       "messages": [
         {
           "role": "system",
-          "content": "You are an AI assistant that helps people find information."
+          "content": "You are an AI assistant that helps people find information. You will answer questions in short responsee and precisely. If you don't know the answer, say 'I don't know'."
         },
         {
           "role": "user",
@@ -48,11 +48,7 @@ export const askAI = createAsyncThunk(
         },
       ],
       "temperature": 0.7,
-      "top_p": 0.95,
-      "frequency_penalty": 0,
-      "presence_penalty": 0,
-      "max_tokens": 800,
-      "stop": null
+      "max_tokens": 800
     });
 
     console.log('Sending prompt:')
