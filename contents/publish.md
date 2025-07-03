@@ -14,7 +14,13 @@ npm run build
 
 ## ถ้าอยากทดสอบรันจริงๆตอนนี้...
 
-รัน server ง่ายๆ ได้ด้วยคำสั่ง 
+รันคำสั่งด้านล่าง เพื่อติดตั้ง package ที่ชื่อว่า `serve` ซึ่งเป็น static file server 
+
+```bash
+npm install -g serve
+```
+
+จากนั้น run server ด้วยไฟล์ที่อยู่ใน folder `build` ได้ด้วยคำสั่ง 
 
 ```bash
 serve -s build
