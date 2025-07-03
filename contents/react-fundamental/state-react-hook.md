@@ -3,7 +3,7 @@
 
 ในที่นี้เราเราสามารถสร้าง **ตัวแปร และ function ที่ไว้ทำงานกับ State** ของ function component ได้ ผ่าน React Hook ชื่อ `useState()`
 
-## 1. สร้าง CounterComponent.js
+## 1. สร้าง CounterComponent.jsx
 
 สร้างไฟล์ `src/CounterComponent.js`
 
