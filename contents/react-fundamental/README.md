@@ -11,3 +11,4 @@
 ## Optional
 
 - [`useMemo` hook](https://github.com/teerasej/nextflow-react-js-vite/tree/example-usememo) ([reference](https://react.dev/reference/react/useMemo))
+- (React 19) [`useActionState` hook](https://github.com/teerasej/nextflow-react-js-vite/tree/use-action-state-example) ([reference](https://react.dev/reference/react/useActionState))
