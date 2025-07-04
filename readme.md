@@ -53,6 +53,11 @@
 
 - [Debugging React with VSCode](contents/debugging.md)
 
+## React 19 (In progress)
+
+- [`use()` hook](https://github.com/teerasej/nextflow-react-vite-use-hook-example)
+- [`useActionState` hook](https://github.com/teerasej/nextflow-react-js-vite/tree/use-action-state-example) ([reference](https://react.dev/reference/react/useActionState))
+
 ## Advanced Topics
 
 - [Advanced Topics](contents/advanced/README.md)
