@@ -3,6 +3,8 @@
 
 ให้ทำการสร้าง User Interface ของ **PromptInputComponent** ตามด้านล่าง
 
+[react-bootstrap](https://react-bootstrap.netlify.app/) 
+
 ```js
 // src/components/promptInput/PromptInputComponent.js
 
