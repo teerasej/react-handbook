@@ -57,6 +57,7 @@
 
 - [`use()` hook](https://github.com/teerasej/nextflow-react-vite-use-hook-example)
 - [`useActionState` hook](https://github.com/teerasej/nextflow-react-js-vite/tree/use-action-state-example) ([reference](https://react.dev/reference/react/useActionState))
+- [Can React 19 replace Redux?](contents/react-19/compare-with-redux.md)
 
 ## Advanced Topics
 
