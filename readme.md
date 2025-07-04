@@ -9,7 +9,7 @@
 
 ## Survey!! 😎❤️🥳
 
-[มารู้จักกันหน่อย](https://app.sli.do/event/tpyr1stJs4wENE5cxwffw4)
+- See you next time!
 
 ## Setup your machine
 
