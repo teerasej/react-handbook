@@ -1,7 +1,8 @@
 
 # สร้าง Copilot client 
 
-ในโปรเจคนี้เราใช้ component จาก [react-bootstrap](https://react-bootstrap.netlify.app/) นะ
+- ในโปรเจคนี้เราใช้ component จาก [react-bootstrap](https://react-bootstrap.netlify.app/) นะ
+- [แผนภาพ slide ในส่วน redux แบบ PDF](https://github.com/teerasej/react-handbook/blob/master/files/ReactJS-2025-redux-session.pdf)
 
 ## Part 1: User Interface
 
