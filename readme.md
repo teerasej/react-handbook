@@ -9,7 +9,7 @@
 
 ## Survey!! 😎❤️🥳
 
-[มารู้จักกันหน่อย](https://app.sli.do/event/tpyr1stJs4wENE5cxwffw4)
+- See you next time!
 
 ## Setup your machine
 
@@ -52,6 +52,12 @@
 ## Debugging React with VSCode
 
 - [Debugging React with VSCode](contents/debugging.md)
+
+## React 19 (In progress)
+
+- [`use()` hook](https://github.com/teerasej/nextflow-react-vite-use-hook-example)
+- [`useActionState` hook](https://github.com/teerasej/nextflow-react-js-vite/tree/use-action-state-example) ([reference](https://react.dev/reference/react/useActionState))
+- [Can React 19 replace Redux?](contents/react-19/compare-with-redux.md)
 
 ## Advanced Topics
 
